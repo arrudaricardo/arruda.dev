@@ -1,5 +1,4 @@
-import { GetStaticProps} from 'next'
-import { readFileSync } from 'fs'
+import { GetStaticProps } from 'next'
 import ReactMarkdown from 'react-markdown'
 import matter from 'gray-matter';
 import Layout from '../components/layout'
@@ -7,27 +6,26 @@ import style from '../styles/post.module.css'
 import Footer from '../components/Footer'
 import { author, footerCopyright, baseURL } from '../config.json'
 
-const About = ({content, footer}: {content: string, footer: any}) => {
-  return(
-      <Layout title={"About"}>
-          <>
-              <div className={style.root}>
-                  <ReactMarkdown source={content} />
+const About = ({ content, footer, data }: { content: string, footer: any, data: any }) => {
+  return (
+    <Layout title={"About"}>
+        <div className={style.root}>
+          <h1>{data.title}</h1>
+          <ReactMarkdown source={content} />
           <Footer footer={footer} display='relative' />
-              </div>
-          </>
-      </Layout>
+        </div>
+    </Layout>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
 
-  const file = readFileSync('content/about.md').toString()
-  const {data, content} = matter(file)
+  const { content, data } = matter.read('content/about.md')
+  console.log({data})
 
-  const options = { year: "numeric", month: "long", day: "numeric" };
-  const formattedDate = data.date.toLocaleDateString("en-US", options);
-  const frontmatter = {...data, date: formattedDate}
+  // const options = { year: "numeric", month: "long", day: "numeric" };
+  // const formattedDate = data.date.toLocaleDateString("en-US", options);
+  // const frontmatter = { ...data}
 
   const dateNow = new Date()
   const footer = {
@@ -39,12 +37,12 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return (
     {
-    props: {
-      content,
-      footer,
-      frontmatter
+      props: {
+        content,
+        footer,
+        data,
+      }
     }
-  }
   )
 }
 
