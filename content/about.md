@@ -23,12 +23,10 @@ title: Ricardo de Arruda - Resume
 ###### deArruda, Bucharest, Romenia. Sep 2019 – Sep 2020
 + Development of web/mobile application (Back-end - Front-end, DevOps).
 + Consulting for cloud architecture.
-
 ## Software Developer
 ###### Accenture, Bucharest, Romenia. Jun 2017 – Aug 2019
 + Automated solutions for business processes in Python/VBA/Dynamics 
 + Front-end development for supplier chain management application.
-
 ## Python Developer 
 ###### Wineowine, Rome, Italy.  Jan 2016 - May 2017
 + Back-end Python development for e-commerce.
