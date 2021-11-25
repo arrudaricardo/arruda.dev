@@ -12,7 +12,6 @@ type Props = {
 const Home = ({hasPosts, children}: Props ) => {
   return (
   <div className={ style.center}>
-      <h1 className={ style.title}>{ config.title }</h1>
       { children }
       { config.subTitle && <p className={ style.subtitle} >{ config.subTitle }</p> }
       {hasPosts && 

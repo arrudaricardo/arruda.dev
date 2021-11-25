@@ -5,8 +5,12 @@ import Iam from '../components/iam'
 import Footer from '../components/Footer'
 import { GetStaticProps } from 'next'
 import { postsExist } from '../lib/postHelper'
-import { author, footerCopyright, baseURL } from '../config.json'
+import style from '../styles/home.module.css'
+import { author, footerCopyright, baseURL, title } from '../config.json'
 import { genRssFile } from '../lib/genRss'
+import { useState, useEffect, useRef } from 'react'
+import { useSpring, useChain, animated, useSpringRef, config } from '@react-spring/web'
+
 
 type Index = {
   footer?: {
@@ -20,13 +24,62 @@ type Index = {
 }
 
 export default function Index({ hasPosts, footer }: Index) {
+  const intervals  = useRef<ReturnType<typeof setTimeout>[]>([])
+  const [showIam, setShowIam] = useState(false) 
+
+
+  const titleRef = useSpringRef()
+  const titleSprint = useSpring({
+    ref: titleRef,
+    config: config.gentle,
+    from: { fontSize: '0rem' },
+    to: { fontSize: '2rem' }
+  })
+  const socialRef = useSpringRef()
+  const socialSprint = useSpring({
+    ref: socialRef,
+    delay: 4300,
+    from: { fontSize: '1.5rem' },
+    to: { fontSize: '1.6rem' }
+  })
+  const iamRef = useSpringRef()
+  const iamSpring = useSpring({
+    ref: iamRef,
+    delay: 300,
+    from: { height: '0rem' },
+    to: { height: '3.8rem' }
+  })
+
+  useChain([titleRef, iamRef, socialRef])
+
+
+  useEffect(() => {
+    intervals.current = []
+    intervals.current.push(setTimeout(() => { setShowIam(true) }, 2000))
+    return () => intervals.current.forEach(clearTimeout)
+  }, [])
+
   return (
     <Layout title='Home'>
       <>
         <Home hasPosts={hasPosts}>
           <>
-            <Iam />
-            <Social />
+            <animated.div
+              style={titleSprint} >
+              <h1
+              className={style.title}
+              >{title}</h1>
+            </animated.div>
+            <animated.div
+              style={iamSpring} >
+            {showIam &&
+              <Iam />
+            }
+            </animated.div>
+            <animated.div
+              style={socialSprint} >
+              <Social />
+            </animated.div>
           </>
         </Home>
         <Footer footer={footer} display='fixed' />

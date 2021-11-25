@@ -15,8 +15,10 @@
   align-items: center;
   justify-content: center;
 }
+
 .title {
   margin: 0;
+  padding: 0;
   text-align: center;
 }
 .posts {
