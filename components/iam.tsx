@@ -16,13 +16,13 @@ const Iam = () => {
     {
       config: config.wobbly,
       from: {
-        transform: 'translate3d(0, 3rem ,0)',
+        transform: 'translate3d(0, 4rem ,0)',
         fontSize: '1.5rem',
         opacity: 0
       },
       enter: {
-        fontSize: '1.6rem',
-        transform: 'translate3d(0, 0rem, 0)',
+        fontSize: '1.7rem',
+        transform: 'translate3d(0, -1.5rem, 0)',
         textShadow: `-1px 4px 3px ${randomColor}`,
         opacity: 1,
       },
@@ -36,13 +36,13 @@ const Iam = () => {
       trail: 200,
       config: config.wobbly,
       from: {
-        transform: 'translate3d(0, -3rem, 0)',
+        transform: 'translate3d(0, -5rem, 0)',
         fontSize: '1.5rem',
         opacity: 0
       },
       enter: {
-        transform: 'translate3d(0, 0rem, 0)',
-        fontSize: '1.6rem',
+        transform: 'translate3d(0, -1.5rem, 0)',
+        fontSize: '1.7rem',
         textShadow: `-1px 4px 3px ${randomColor}`,
         opacity: 1,
       },
@@ -51,7 +51,7 @@ const Iam = () => {
 
 
   const reset = useCallback(() => {
-    const delay = 2500
+    const delay = 3500
     ref.current.forEach(clearTimeout)
     ref.current = []
     ref.current.push(setInterval(() => setIamA(i => (i! + 1) % IamList.length), delay))

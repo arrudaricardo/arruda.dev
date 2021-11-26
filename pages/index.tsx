@@ -48,14 +48,19 @@ export default function Index({ hasPosts, footer }: Index) {
     ref: titleRef,
     config: config.gentle,
     from: { fontSize: '0rem' },
-    to: { fontSize: '2rem' }
+    to: { fontSize: '2.5rem' }
   })
   const socialRef = useSpringRef()
   const socialSpring = useSpring({
     ref: socialRef,
-    delay: 4300,
-    from: { fontSize: '1.5rem' },
-    to: { fontSize: '1.6rem' }
+    config: config.gentle,
+    delay: 8300,
+    from: {
+      fontSize: '1.5rem'
+      },
+    to: {
+      fontSize: '1.6rem'
+      }
   })
   const iamRef = useSpringRef()
   const iamSpring = useSpring({

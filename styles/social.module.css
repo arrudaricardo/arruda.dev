@@ -1,16 +1,16 @@
 .icon {
-  display: inline-block;
-  vertical-align: -0.125em;
-  width: 1em;
-  height: 1em;
-}
-.social-home {
-  font-size: 1.4em;
-  text-align: center;
-  padding: 1rem;
-  opacity: 0.8;
+  max-height: 1.6em;
 }
 
-.link {
-  margin: 0 .2em;
+.icon:hover {
+ transition: all .2s ease-in-out;
+ transform: scale(1.1);
+ color:rgb(255,255,255,0.9)
+}
+
+.social-home {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
 }

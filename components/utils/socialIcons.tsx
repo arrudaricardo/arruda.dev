@@ -1,20 +1,21 @@
-import { ReactElement } from "react";
+import { ReactElement, CSSProperties } from "react";
 
 type TsocialIcons = {
   [social: string]: (props: Props) => ReactElement;
 };
 type Props = {
   className: string;
+  style?: CSSProperties 
 };
 
-//TODO: add classname for all Icons
 const socialIcons: TsocialIcons = {
-  codepen: ({ className }) => (
+  codepen: ({ className, style = {} }) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      width="24"
-      height="24"
+      style={style}
+      width="100%"
+      height="100%"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -33,8 +34,8 @@ const socialIcons: TsocialIcons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      width="24"
-      height="24"
+      width="100%"
+      height="100%"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -49,8 +50,8 @@ const socialIcons: TsocialIcons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      width="24"
-      height="24"
+      width="100%"
+      height="100%"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -65,8 +66,8 @@ const socialIcons: TsocialIcons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      width="24"
-      height="24"
+      width="100%"
+      height="100%"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -81,8 +82,8 @@ const socialIcons: TsocialIcons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      width="24"
-      height="24"
+      width="100%"
+      height="100%"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -99,8 +100,8 @@ const socialIcons: TsocialIcons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      width="24"
-      height="24"
+      width="100%"
+      height="100%"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -117,8 +118,8 @@ const socialIcons: TsocialIcons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      width="24"
-      height="24"
+      width="100%"
+      height="100%"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -137,8 +138,8 @@ const socialIcons: TsocialIcons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="feather"
-      width="24"
-      height="24"
+      width="100%"
+      height="100%"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -153,8 +154,8 @@ const socialIcons: TsocialIcons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="feather"
-      width="24"
-      height="24"
+      width="100%"
+      height="100%"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -169,8 +170,8 @@ const socialIcons: TsocialIcons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="feather"
-      width="24"
-      height="24"
+      width="100%"
+      height="100%"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -185,8 +186,8 @@ const socialIcons: TsocialIcons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="feather"
-      width="24"
-      height="24"
+      width="100%"
+      height="100%"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -201,8 +202,8 @@ const socialIcons: TsocialIcons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="feather"
-      width="24"
-      height="24"
+      width="100%"
+      height="100%"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -218,8 +219,8 @@ const socialIcons: TsocialIcons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      width="24"
-      height="24"
+      width="100%"
+      height="100%"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -235,8 +236,8 @@ const socialIcons: TsocialIcons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="feather"
-      width="24"
-      height="24"
+      width="100%"
+      height="100%"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -265,8 +266,8 @@ const socialIcons: TsocialIcons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="feather"
-      width="24"
-      height="24"
+      width="100%"
+      height="100%"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -287,8 +288,8 @@ const socialIcons: TsocialIcons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="feather"
-      width="24"
-      height="24"
+      width="100%"
+      height="100%"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -327,8 +328,8 @@ const socialIcons: TsocialIcons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="feather"
-      width="24"
-      height="24"
+      width="100%"
+      height="100%"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -350,8 +351,8 @@ const socialIcons: TsocialIcons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="feather"
-      width="24"
-      height="24"
+      width="100%"
+      height="100%"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -371,8 +372,8 @@ const socialIcons: TsocialIcons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="feather"
-      width="24"
-      height="24"
+      width="100%"
+      height="100%"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -392,8 +393,8 @@ const socialIcons: TsocialIcons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="feather"
-      width="24"
-      height="24"
+      width="100%"
+      height="100%"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -414,8 +415,8 @@ const socialIcons: TsocialIcons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="feather"
-      width="24"
-      height="24"
+      width="100%"
+      height="100%"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -439,9 +440,9 @@ const socialIcons: TsocialIcons = {
       strokeWidth="0"
       stroke="currentColor"
       fill="currentColor"
-      viewBox="0 0 400 500"
-      height="34"
-      width="35"
+      viewBox="0 0 500 500"
+      width="100%"
+      height="100%"
       xmlns="http://www.w3.org/2000/svg"
     >
       {" "}
@@ -457,8 +458,8 @@ const socialIcons: TsocialIcons = {
       stroke="currentColor"
       fill="currentColor"
       viewBox="0 0 560 560"
-      height="24"
-      width="25"
+      width="100%"
+      height="100%"
       xmlns="http://www.w3.org/2000/svg"
     >
       {" "}
