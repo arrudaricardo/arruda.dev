@@ -31,8 +31,7 @@
     "allowJs": true,
     "skipLibCheck": true,
     "noEmit": true,
-    "isolatedModules": true,
-    "incremental": true
+    "isolatedModules": true
   },
   "exclude": [
     "node_modules"
