@@ -40,7 +40,8 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 
   // Generate resume pdf 
-  const date = new Date().toLocaleDateString().replaceAll('/','-')
+  const date = new Date().toLocaleDateString().replace(/\//g,'-')
+
   const pdfFile = `ricardo-arruda-resume-${date}.pdf`
 
   await mdToPdf({ path: aboutPath }, { dest: path.join('public/', pdfFile) });
