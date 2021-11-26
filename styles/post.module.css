@@ -19,3 +19,9 @@
 .link {
     color:#8cd1ff;
 }
+
+.download {
+    position: fixed;
+    top: 1em;
+    right: 1em;
+}

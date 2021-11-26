@@ -4,24 +4,28 @@ import matter from 'gray-matter';
 import Layout from '../components/layout'
 import style from '../styles/post.module.css'
 import Footer from '../components/Footer'
+import path from 'path'
 import { author, footerCopyright, baseURL } from '../config.json'
+import { mdToPdf } from 'md-to-pdf';
 
-const About = ({ content, footer, data }: { content: string, footer: any, data: any }) => {
+const About = ({ content, footer, data, pdfFile  }: { pdfFile: string,  content: string, footer: any, data: any }) => {
   return (
     <Layout title={"About"}>
-        <div className={style.root}>
-          <h1>{data.title}</h1>
-          <ReactMarkdown source={content} />
-          <Footer footer={footer} display='relative' />
-        </div>
+      <div className={style.root}>
+        <a href={pdfFile} target="_blank"
+        className={style.download}>Download
+        </a>
+        <ReactMarkdown source={content} />
+        <Footer footer={footer} display='relative' />
+      </div>
     </Layout>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
+  const aboutPath = 'content/about.md'
 
-  const { content, data } = matter.read('content/about.md')
-  console.log({data})
+  const { content, data } = matter.read(aboutPath)
 
   // const options = { year: "numeric", month: "long", day: "numeric" };
   // const formattedDate = data.date.toLocaleDateString("en-US", options);
@@ -35,12 +39,20 @@ export const getStaticProps: GetStaticProps = async () => {
     year: dateNow.getFullYear(),
   }
 
+  // Generate resume pdf 
+  const date = new Date().toLocaleDateString().replaceAll('/','-')
+  const pdfFile = `ricardo-arruda-resume-${date}.pdf`
+
+  await mdToPdf({ path: aboutPath }, { dest: path.join('public/', pdfFile) });
+
+
   return (
     {
       props: {
         content,
         footer,
         data,
+        pdfFile
       }
     }
   )

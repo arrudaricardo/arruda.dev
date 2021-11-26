@@ -1,6 +1,7 @@
 ---
 title: Ricardo de Arruda - Resume 
 ---
+# Ricardo de Arruda 
 [arruda.dev](https://arruda.dev) | [ricardo@arruda.dev](mailto:ricard@arruda.dev?subject=Hey%20Ricardo.&body=) | [LinkedIn](https://www.linkedin.com/in/ricardodearruda/) | [Github](https://github.com/arrudaricardo/)
 
 ---

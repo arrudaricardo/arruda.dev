@@ -5,6 +5,10 @@
     "build": "next build",
     "start": "next start"
   },
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=16.8.0"
+  },
   "dependencies": {
     "@react-spring/web": "^9.3.1",
     "eslint": "^7.2.0",
@@ -19,6 +23,7 @@
     "@types/node": "^13.13.2",
     "@types/prismjs": "^1.16.1",
     "@types/react": "^16.9.34",
+    "md-to-pdf": "^5.0.1",
     "typescript": "^3.8.3",
     "typescript-plugin-css-modules": "^2.2.0"
   }
