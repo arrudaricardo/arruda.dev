@@ -517,16 +517,6 @@ const Layout = ({ children, title, mainStyle }: Props) => {
     "zLayers": 100
   }
 
-  const particlesInit = (main: any) => {
-    console.log(main);
-
-    // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
-  };
-
-  const particlesLoaded = (container: any) => {
-    console.log(container);
-  };
-
   return (
     <div className={styles.body}>
       <Head>
@@ -535,8 +525,6 @@ const Layout = ({ children, title, mainStyle }: Props) => {
       </Head>
       <Particles
         id="tsparticles"
-        init={particlesInit}
-        loaded={particlesLoaded}
         options={particlesOptions}
       />
       <main className={mainStyle ?? styles.main}>

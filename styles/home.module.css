@@ -20,7 +20,9 @@
   margin: 0;
   padding: 0;
   text-align: center;
+  text-shadow: -1px 5px blueviolet;
 }
+
 .posts {
   display: block;
   text-align: center;
