@@ -4,6 +4,8 @@ const { IamList } = iam
 
 import { iam } from '../config.json'
 import style from '../styles/iam.module.css'
+const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+
 const Iam = () => {
   const ref = useRef<ReturnType<typeof setTimeout>[]>([])
   const [iamA, setIamA] = useState<number>(0)
@@ -21,6 +23,7 @@ const Iam = () => {
       enter: {
         fontSize: '1.6rem',
         transform: 'translate3d(0, 0rem, 0)',
+        textShadow: `-1px 4px 3px ${randomColor}`,
         opacity: 1,
       },
       // leave: { display: "flex", fontSize: "100rem" },
@@ -40,6 +43,7 @@ const Iam = () => {
       enter: {
         transform: 'translate3d(0, 0rem, 0)',
         fontSize: '1.6rem',
+        textShadow: `-1px 4px 3px ${randomColor}`,
         opacity: 1,
       },
       // leave: { fontSize: '1rem' },

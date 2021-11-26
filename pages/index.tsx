@@ -24,19 +24,34 @@ type Index = {
 }
 
 export default function Index({ hasPosts, footer }: Index) {
-  const intervals  = useRef<ReturnType<typeof setTimeout>[]>([])
-  const [showIam, setShowIam] = useState(false) 
+  const intervals = useRef<ReturnType<typeof setTimeout>[]>([])
+  const [showIam, setShowIam] = useState(false)
+  // const randomColor = useCallback(() => '#' + Math.floor(Math.random() * 16777215).toString(16), [])
 
+  const titleSpringColor = useSpring({
+    // delay: 2000,
+    loop: true,
+    config: config.slow ,
+    to: {
+      color: "white",
+      textShadow: "-1px 5px 1px blueviolet",
+    },
+    from: {
+      textShadow: "-1px 5px 1px blueviolet",
+      color: "white",
+    },
+    // from: { opacity: 0, color: 'red' },
+  })
 
   const titleRef = useSpringRef()
-  const titleSprint = useSpring({
+  const titleSpring = useSpring({
     ref: titleRef,
     config: config.gentle,
     from: { fontSize: '0rem' },
     to: { fontSize: '2rem' }
   })
   const socialRef = useSpringRef()
-  const socialSprint = useSpring({
+  const socialSpring = useSpring({
     ref: socialRef,
     delay: 4300,
     from: { fontSize: '1.5rem' },
@@ -65,19 +80,22 @@ export default function Index({ hasPosts, footer }: Index) {
         <Home hasPosts={hasPosts}>
           <>
             <animated.div
-              style={titleSprint} >
-              <h1
-              className={style.title}
-              >{title}</h1>
+              style={titleSpring} >
+              <animated.h1
+                style={titleSpringColor}
+                className={style.title}
+              >
+                {title}
+              </animated.h1>
             </animated.div>
             <animated.div
               style={iamSpring} >
-            {showIam &&
-              <Iam />
-            }
+              {showIam &&
+                <Iam />
+              }
             </animated.div>
             <animated.div
-              style={socialSprint} >
+              style={socialSpring} >
               <Social />
             </animated.div>
           </>
