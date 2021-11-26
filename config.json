@@ -17,11 +17,13 @@
 "dateformNumTime": "2006-01-02 15:04 -0700",
 "dateformShort": "Jan 2",
 "iam": {
-  "IamList": [["I'm a", "Full-Stack Dev 👨‍💻"],
-              ["I'm a","Linux fanboy"],
+  "IamList": [
+              ["I'm a", "Full-Stack Dev 👨‍💻"],
               ["I'm", "minimalist"],
               ["I ❤️","the web"],
-              ["I'm a ", "pythoneer 🐍"]]
+              ["Simple is better than", "complex 🐍"],
+              ["Constantly","lerning new tech"]
+              ]
 },
 "social": {
   "cv": {
