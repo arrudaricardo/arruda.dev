@@ -20,7 +20,6 @@ type Index = {
     copyRight: string,
   }
   hasPosts: boolean
-
 }
 
 export default function Index({ hasPosts, footer }: Index) {
@@ -82,7 +81,7 @@ export default function Index({ hasPosts, footer }: Index) {
   return (
     <Layout title='Home'>
       <>
-        <Home hasPosts={hasPosts}>
+        <Home >
           <>
             <animated.div
               style={titleSpring} >
@@ -101,7 +100,7 @@ export default function Index({ hasPosts, footer }: Index) {
             </animated.div>
             <animated.div
               style={socialSpring} 
-              children={<Social />}
+              children={<Social hasPosts={hasPosts} />}
               />
           </>
         </Home>

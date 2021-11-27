@@ -1,7 +1,7 @@
 import { social } from '../config.json'
 import style from '../styles/social.module.css'
 import socialIcons from './utils/socialIcons'
-// import {useState} from 'react'
+import Link from 'next/link'
 import { useSprings, animated, config } from '@react-spring/web'
 
 type ISocial = typeof social
@@ -9,7 +9,11 @@ const socialList = Object.keys(social).map((s) => ({ element: socialIcons[s], ty
 
 const randomColor = () => '#' + Math.floor(Math.random() * 16777215).toString(16);
 
-const Social = () => {
+interface Props {
+  hasPosts: boolean
+}
+
+const Social = ({ hasPosts }: Props) => {
 
   const socialSpring = useSprings(socialList.length,
     socialList.map((_, i) => ({
@@ -27,25 +31,31 @@ const Social = () => {
   )
 
   return (
-    <div className={style["social-home"]}>
-      {
-        socialSpring.map((s, i) => {
-          const url = social[socialList[i].type].url
-          const iconElement = socialList[i].element
-          return (
-            <animated.a
-              key={i}
-              href={url}
-              target={url.includes('http') ? "_blank" : "_self"}
-              style={s}
-              children={
-                iconElement({ className: style.icon })
-              }
-            />)
+    <div className={style.container}>
+      <div className={style["social-home"]}>
+        {
+          socialSpring.map((s, i) => {
+            const url = social[socialList[i].type].url
+            const iconElement = socialList[i].element
+            return (
+              <animated.a
+                key={i}
+                href={url}
+                target={url.includes('http') ? "_blank" : "_self"}
+                style={s}
+                children={
+                  iconElement({ className: style.icon })
+                }
+              />)
+          }
+          )
         }
-        )
+      </div>
+      {hasPosts &&
+        <Link href='/posts'>
+          <a>Posts</a>
+        </Link>
       }
-
     </div>
   )
 }
