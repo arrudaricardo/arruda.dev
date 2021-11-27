@@ -7,8 +7,8 @@ import { useSprings, animated } from '@react-spring/web'
 type ISocial = typeof social
 const socialList = Object.keys(social).map((s) => ({ element: socialIcons[s], type: s as keyof ISocial }))
 
-const randomColor = () => 
-   '#' + Math.floor(Math.random() * 16777215).toString(16);
+const randomColor = () =>
+  '#' + (Math.random().toString(16) + "000000").substring(2, 8)
 
 
 interface Props {
