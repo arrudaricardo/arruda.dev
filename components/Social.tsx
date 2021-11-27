@@ -2,12 +2,16 @@ import { social } from '../config.json'
 import style from '../styles/social.module.css'
 import socialIcons from './utils/socialIcons'
 import Link from 'next/link'
-import { useSprings, animated, config } from '@react-spring/web'
+import { useSprings, animated } from '@react-spring/web'
 
 type ISocial = typeof social
 const socialList = Object.keys(social).map((s) => ({ element: socialIcons[s], type: s as keyof ISocial }))
 
-const randomColor = () => '#' + Math.floor(Math.random() * 16777215).toString(16);
+const randomColor = () => {
+  let r = '#' + Math.floor(Math.random() * 16777215).toString(16);
+  console.log(r)
+  return r
+}
 
 interface Props {
   hasPosts: boolean
@@ -16,18 +20,21 @@ interface Props {
 const Social = ({ hasPosts }: Props) => {
 
   const socialSpring = useSprings(socialList.length,
-    socialList.map((_, i) => ({
-      delay: ((i + 1) * 300) + 3000,
-      config: config.molasses,
-      from: {
-        transform: "scale(1)",
-        color: "white"
-      },
-      to: {
-        transform: "scale(1.3)",
-        color: randomColor()
-      }
-    }))
+    socialList.map((_, i) => {
+      const color = randomColor()
+      return ({
+        delay: (i * 150) + 4500,
+        config: { mass: 0.5, tension: 350, friction: 20 },
+        from: {
+          transform: "scale(1)",
+          color: "white"
+        },
+        to: {
+          transform: "scale(1.5)",
+          color
+        }
+      })
+    })
   )
 
   return (

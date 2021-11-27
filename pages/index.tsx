@@ -53,28 +53,28 @@ export default function Index({ hasPosts, footer }: Index) {
   const socialSpring = useSpring({
     ref: socialRef,
     config: config.gentle,
-    delay: 8300,
+    delay: 100,
     from: {
-      fontSize: '1.5rem'
+      opacity: 0
       },
     to: {
-      fontSize: '1.6rem'
+      opacity: 1
       }
   })
-  const iamRef = useSpringRef()
-  const iamSpring = useSpring({
-    ref: iamRef,
-    delay: 300,
+  const iamGapRef = useSpringRef()
+  const iamGapSpring = useSpring({
+    ref: iamGapRef,
+    delay: 500,
     from: { height: '0rem' },
     to: { height: '3.8rem' }
   })
 
-  useChain([titleRef, iamRef, socialRef])
+  useChain([titleRef, socialRef, iamGapRef])
 
 
   useEffect(() => {
     intervals.current = []
-    intervals.current.push(setTimeout(() => { setShowIam(true) }, 2000))
+    intervals.current.push(setTimeout(() => { setShowIam(true) }, 3200))
     return () => intervals.current.forEach(clearTimeout)
   }, [])
 
@@ -93,7 +93,7 @@ export default function Index({ hasPosts, footer }: Index) {
               </animated.h1>
             </animated.div>
             <animated.div
-              style={iamSpring} >
+              style={iamGapSpring} >
               {showIam &&
                 <Iam />
               }
