@@ -30,7 +30,7 @@ export default function Index({ hasPosts, footer }: Index) {
   const titleSpringColor = useSpring({
     // delay: 2000,
     loop: true,
-    config: config.slow ,
+    config: config.slow,
     to: {
       color: "white",
       textShadow: "-1px 5px 1px blueviolet",
@@ -45,7 +45,10 @@ export default function Index({ hasPosts, footer }: Index) {
   const titleRef = useSpringRef()
   const titleSpring = useSpring({
     ref: titleRef,
-    config: config.gentle,
+    config: {
+      ...config.stiff,
+      clamp: false
+    },
     from: { fontSize: '0rem' },
     to: { fontSize: '2.5rem' }
   })
@@ -56,10 +59,10 @@ export default function Index({ hasPosts, footer }: Index) {
     delay: 100,
     from: {
       opacity: 0
-      },
+    },
     to: {
       opacity: 1
-      }
+    }
   })
   const iamGapRef = useSpringRef()
   const iamGapSpring = useSpring({
@@ -84,6 +87,7 @@ export default function Index({ hasPosts, footer }: Index) {
         <Home >
           <>
             <animated.div
+              className={style["title-container"]}
               style={titleSpring} >
               <animated.h1
                 style={titleSpringColor}
@@ -99,9 +103,9 @@ export default function Index({ hasPosts, footer }: Index) {
               }
             </animated.div>
             <animated.div
-              style={socialSpring} 
+              style={socialSpring}
               children={<Social hasPosts={hasPosts} />}
-              />
+            />
           </>
         </Home>
         <Footer footer={footer} display='fixed' />

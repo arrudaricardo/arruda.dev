@@ -17,10 +17,16 @@
 }
 
 .title {
-  margin: 0;
-  padding: 0;
+  margin: 0rem;
+  padding: 0rem;
+  overflow-wrap: anywhere;
+  /* word-break: bre; */
   text-align: center;
   /* text-shadow: -1px 5px blueviolet; */
+}
+
+.title-container {
+  margin:0
 }
 
 .posts {
