@@ -1,7 +1,7 @@
-import Home from '../components/home'
-import Social from '../components/social'
-import Layout from '../components/layout'
-import Iam from '../components/iam'
+import Home from '../components/Home'
+import Social from '../components/Social'
+import Layout from '../components/Layout'
+import Iam from '../components/Iam'
 import Footer from '../components/Footer'
 import { GetStaticProps } from 'next'
 import { postsExist } from '../lib/postHelper'
@@ -100,9 +100,9 @@ export default function Index({ hasPosts, footer }: Index) {
               }
             </animated.div>
             <animated.div
-              style={socialSpring} >
-              <Social />
-            </animated.div>
+              style={socialSpring} 
+              children={<Social />}
+              />
           </>
         </Home>
         <Footer footer={footer} display='fixed' />

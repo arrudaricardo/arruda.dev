@@ -2,7 +2,7 @@ import ReactMarkdown from 'react-markdown'
 import { GetStaticProps } from 'next'
 import Head from "next/head";
 import Prism from 'prismjs'
-import Layout from '../../components/layout'
+import Layout from '../../components/Layout'
 import NavBottom from '../../components/NavBottom'
 import Footer from '../../components/Footer'
 import style from '../../styles/post.module.css'

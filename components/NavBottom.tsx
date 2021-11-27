@@ -1,4 +1,4 @@
-import Social from './social'
+import Social from './Social'
 import style from '../styles/navbottom.module.css'
 import config from '../config.json'
 

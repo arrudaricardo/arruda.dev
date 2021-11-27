@@ -10,7 +10,6 @@ const socialList = Object.keys(social).map((s) => ({ element: socialIcons[s], ty
 const randomColor = () => '#' + Math.floor(Math.random() * 16777215).toString(16);
 
 const Social = () => {
-  // const [over, setOver] = useState<number>()
 
   const socialSpring = useSprings(socialList.length,
     socialList.map((_, i) => ({
@@ -50,16 +49,5 @@ const Social = () => {
     </div>
   )
 }
-// { Object.keys(socialConf).map(social => {
-//   const link = socialConf[social].url
-//   const Icon = socialIcons[social]
-//   return (
-//   <a key={social} className={style['link']} href={link}>
-//     <Icon className={style['icon']}/>
-//   </a>
-//   )
-// })
-// }
-
 
 export default Social
