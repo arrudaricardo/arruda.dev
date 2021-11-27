@@ -6,7 +6,8 @@ import Footer from '../components/Footer'
 import { GetStaticProps } from 'next'
 import { postsExist } from '../lib/postHelper'
 import style from '../styles/home.module.css'
-import { author, footerCopyright, baseURL, title } from '../config.json'
+import Head from 'next/head'
+import { author, footerCopyright, baseURL, title, description, ogimage } from '../config.json'
 import { genRssFile } from '../lib/genRss'
 import { useState, useEffect, useRef } from 'react'
 import { useSpring, useChain, animated, useSpringRef, config } from '@react-spring/web'
@@ -84,6 +85,12 @@ export default function Index({ hasPosts, footer }: Index) {
   return (
     <Layout title='Home'>
       <>
+      <Head>
+        <meta property="og:url" content={baseURL} key="ogurl" />
+        <meta property="og:image" content={ogimage} key="ogimage" />
+        <meta property="og:title" content={title}key="title" />
+        <meta property="og:description" content={description} key="ogdesc" />
+      </Head>
         <Home >
           <>
             <animated.div
