@@ -21,7 +21,7 @@ export default function NavBottom({hasPosts}: Props) {
           }
         </div>
         <div className={style.navRight}>
-          <Social />
+          <Social hasPosts={hasPosts} />
         </div>
       </div>
     </header>

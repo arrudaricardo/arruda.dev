@@ -14,7 +14,7 @@ const randomColor = () => {
 }
 
 interface Props {
-  hasPosts: boolean
+  hasPosts?: boolean
 }
 
 const Social = ({ hasPosts }: Props) => {
