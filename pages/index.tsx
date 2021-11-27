@@ -85,13 +85,13 @@ export default function Index({ hasPosts, footer }: Index) {
   return (
     <Layout title='Home'>
       <>
-      <Head>
-        <meta property="og:url" content={baseURL} key="ogurl" />
-        <meta property="og:image" content={ogimage} key="ogimage" />
-        <meta property="og:title" content={title}key="title" />
-        <meta property="og:description" content={description} key="ogdesc" />
-      </Head>
-        <Home >
+        <Head>
+          <meta property="og:url" content={baseURL} key="ogurl" />
+          <meta property="og:image" content={ogimage} key="ogimage" />
+          <meta property="og:title" content={title} key="title" />
+          <meta property="og:description" content={description} key="ogdesc" />
+        </Head>
+        <Home>
           <>
             <animated.div
               className={style["title-container"]}

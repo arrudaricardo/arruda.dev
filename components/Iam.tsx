@@ -66,14 +66,14 @@ const Iam = () => {
     <div className={style.root}>
       {transitionA((s, i) => {
         return (
-          <animated.div style={s} >
+          <animated.div id='iam0' style={s} >
             {IamList[i][0]}
           </animated.div>
         )
       })}
       {transitionB((s, i) => {
         return (
-          <animated.div style={s}>
+          <animated.div id='iam1' style={s}>
             {IamList[i][1]}
           </animated.div>
         )

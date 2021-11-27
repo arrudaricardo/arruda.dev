@@ -44,20 +44,20 @@ const Layout = ({ children, title, mainStyle }: Props) => {
       "events": {
         "onClick": {
           "enable": true,
-          "mode": "push"
+          "mode": "repulse"
         },
         "onDiv": {
-          "selectors": "#repulse-div",
-          "enable": false,
-          "mode": "repulse",
-          "type": "circle"
+          "selectors": ["#iam0", "#iam1"],
+          "enable": true,
+          "mode": "bounce",
+          "type": "rectangle"
         },
         "onHover": {
           "enable": true,
           "mode": "connect",
           "parallax": {
-            "enable": false,
-            "force": 60,
+            "enable": true,
+            "force": 40,
             "smooth": 10
           }
         },
@@ -83,7 +83,7 @@ const Layout = ({ children, title, mainStyle }: Props) => {
           "size": 40
         },
         "connect": {
-          "distance": 80,
+          "distance": 50,
           "links": {
             "opacity": 0.5
           },
@@ -125,10 +125,10 @@ const Layout = ({ children, title, mainStyle }: Props) => {
           "quantity": 2
         },
         "repulse": {
-          "distance": 200,
+          "distance": 100,
           "duration": 0.4,
           "factor": 100,
-          "speed": 1,
+          "speed": 2,
           "maxSpeed": 50,
           "easing": "ease-out-quad"
         },
@@ -172,14 +172,14 @@ const Layout = ({ children, title, mainStyle }: Props) => {
         "bounce": {
           "horizontal": {
             "random": {
-              "enable": false,
+              "enable": true,
               "minimumValue": 0.1
             },
             "value": 1
           },
           "vertical": {
             "random": {
-              "enable": false,
+              "enable": true,
               "minimumValue": 0.1
             },
             "value": 1
