@@ -20,6 +20,7 @@
   margin: 0rem;
   padding: 0rem;
   overflow-wrap: anywhere;
+  user-select: none;
   /* word-break: bre; */
   text-align: center;
   /* text-shadow: -1px 5px blueviolet; */

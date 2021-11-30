@@ -1,4 +1,5 @@
 .root {
+  user-select: none;
   display: flex;
   gap: 0.5rem;
   font-style: normal;
