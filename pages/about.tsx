@@ -15,7 +15,7 @@ const About = ({ content, footer, data, pdfFile  }: { pdfFile: string,  content:
         <a href={pdfFile} target="_blank"
         className={style.download}>Download
         </a>
-        <ReactMarkdown source={content} />
+        <ReactMarkdown children={content} />
         <Footer footer={footer} display='relative' />
       </div>
     </Layout>

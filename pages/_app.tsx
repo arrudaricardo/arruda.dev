@@ -1,4 +1,5 @@
 import { ReactPropTypes, JSXElementConstructor } from 'react'
+import Head from 'next/head'
 import '../styles/normalize.css'
 import '../styles/global.css'
 import '../styles/prism.css'
@@ -9,5 +10,11 @@ type Props = {
 }
 
 export default function MyApp({ Component, pageProps }: Props) {
-  return <Component {...pageProps} />
+  return (<>
+    <Head>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    </Head>
+    <Component {...pageProps} />
+  </>
+  )
 }
