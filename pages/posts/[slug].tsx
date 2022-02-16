@@ -10,9 +10,8 @@ import Share from '../../components/ShareFeather'
 import { author, footerCopyright, baseURL } from '../../config.json'
 import { Posts, getPosts, postsExist } from '../../lib/postHelper'
 
-function Atag(props: { href: string, children: any }) {
-  const { value } = props.children[0].props
-  return (<a className={style.link} href={props.href}> {value} </a>)
+function Atag(props: { href: string, value: string }) {
+  return (<a className={style.link} href={props.href}> {props.value} </a>)
 }
 
 function CodeBlock({ language, value }: { language: string, value: string }) {
@@ -31,6 +30,8 @@ interface Post {
   hasPosts: boolean
 }
 
+// renderers={{ code: CodeBlock, link: Atag }} />
+
 export default function PostTemplate({ post, hasPosts, footer }: Post) {
   return (
     <Layout title={post.frontmatter.title!} >
@@ -41,10 +42,27 @@ export default function PostTemplate({ post, hasPosts, footer }: Post) {
         <Share title={post.frontmatter.title} />
         <div className={style.root}>
           <h1>{post.frontmatter.title}</h1>
-          <ReactMarkdown escapeHtml={false} source={post.content} renderers={{ code: CodeBlock, link: Atag }} />
-          <Footer footer={footer} display='relative' />
+          <ReactMarkdown children={post.content}
+            components={{
+              code({ node, inline, className, children, ...props }) {
+                const match = /language-(\w+)/.exec(className || '')
+                return !inline && match ? (
+                  <CodeBlock
+                    language={match[1]}
+                    value={String(children)} />
+                ) : (<code className={className} {...props}>
+                  {children}
+                </code>
+                )
+              },
+              a({ href, children, ...props }) {
+                return Atag({ href: href!, value: String(children) })
+              },
+            }}
+          />
         </div>
-        <NavBottom hasPosts={hasPosts} />
+        <NavBottom />
+        <Footer footer={footer} display='relative' />
       </>
     </Layout>
   )
