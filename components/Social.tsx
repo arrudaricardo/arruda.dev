@@ -15,7 +15,7 @@ interface Props {
   hasPosts?: boolean
 }
 
-const Social = ({ hasPosts }: Props) => {
+export default function Social({ hasPosts }: Props) {
 
   const socialSpring = useSprings(socialList.length,
     socialList.map((_, i) => {
@@ -65,4 +65,3 @@ const Social = ({ hasPosts }: Props) => {
   )
 }
 
-export default Social
