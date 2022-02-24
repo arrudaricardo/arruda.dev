@@ -1,7 +1,17 @@
-
 .container {
   display: flex;
   justify-content: center;
   flex-direction: column;
   margin: 4rem 10vw;
+}
+
+.story-container {
+  min-height: 5rem;
+}
+.rank {
+  display: inline;
+  margin-right: 0.8rem;
+}
+.item {
+  display: flex;
 }

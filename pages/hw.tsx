@@ -5,7 +5,6 @@ import ItemHeader from '../components/hw/ItemHeader'
 import useSWR from 'swr';
 import { useInView } from 'react-intersection-observer';
 
-
 function Story({ id, item, rank }: { id: string | number, item: HWItem | null, rank: number }) {
   const { ref, inView } = useInView({ threshold: 1, triggerOnce: true });
 
@@ -15,22 +14,10 @@ function Story({ id, item, rank }: { id: string | number, item: HWItem | null, r
   }, { fallbackData: item, revalidateOnMount: true })
 
   return (
-    <div ref={ref} className="story-container">
-      <style jsx>{`
-        .story-container {
-          min-height: 8rem;
-        }
-        span {
-          display: inline;
-          margin-right: 0.8rem;
-        }
-        .item {
-          display: flex;
-        }
-      `}</style>
+    <div ref={ref} className={styles["story-container"]}>
       {hwItem && (
-        <div className='item'>
-          <span>{rank + 1}</span>
+        <div className={styles['item']}>
+          <span className={styles["rank"]}>{rank + 1}</span>
           <ItemHeader item={hwItem} />
         </div>
       )
