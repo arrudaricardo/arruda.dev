@@ -13,18 +13,22 @@ title: Ricardo de Arruda - Resume
 + Web3: Solidity, IPFS, Web3.js, ether.js
 ---
 # EXPERIENCE
+
 ## Full Stack Engineer
 ### [Gorgias](https//www.gorgias.com), Remote, April 2022 – Present
 + Gorgias provides an integrated helpdesk for e-commerce brands, making it easy to deliver personalized support and automation across multiple channels.
+
 ## Full Stack Developer
 ### [Zoi](https://en.zoi.tech), Lisbon, Portugal, Jan 2020 - April 2022
 + Main Developer for 30.000 users, web/mobile (React Native) fully featured calendar application.
 + IOT Serverless, microservices for Karcher cleaning mobile Application.
 + Developer for global scale CMS system.
+
 ## Software Developer
 ### [Accenture](https://www.accenture.com), Bucharest, Romenia. Jun 2017 – Aug 2019
 + Automated solutions for business processes in Python/VBA/Dynamics 
 + Front-end development for supplier chain management application.
+
 ## Python Developer 
 ### [Wineowine](https://www.wineowine.it), Rome, Italy.  Jan 2016 - May 2017
 + Back-end Python development for e-commerce.

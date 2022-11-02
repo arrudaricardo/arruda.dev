@@ -2,7 +2,7 @@
 title: React Trash Collector State Machine
 description: Using React to solve a trash collector robot problem.
 author: "Ricardo de Arruda"
-date: 2019-12-26
+date: 2018-12-26
 draft: false 
 tags: [React, JavaScript]
 ---
