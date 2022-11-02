@@ -62,7 +62,7 @@ blockquote cite::before {
   content: "—— ";
 }
 a {
-  color: #e8eef2;
+  color: #83a8c0
   text-decoration: none;
   border: none;
   transition-property: color;
@@ -70,8 +70,7 @@ a {
   transition-timing-function: ease-out;
 }
 a:hover {
-  color: #fff;
-  text-shadow: 0 0 1px #fff;
+  filter: brightness(150%);
 }
 hr {
   opacity: 0.2;
