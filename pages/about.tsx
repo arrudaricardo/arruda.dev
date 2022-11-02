@@ -8,12 +8,12 @@ import path from 'path'
 import { author, footerCopyright, baseURL } from '../config.json'
 import { mdToPdf } from 'md-to-pdf';
 
-const About = ({ content, footer, data, pdfFile  }: { pdfFile: string,  content: string, footer: any, data: any }) => {
+const About = ({ content, footer, data, pdfFile }: { pdfFile: string, content: string, footer: any, data: any }) => {
   return (
     <Layout title={"About"}>
       <div className={style.root}>
         <a href={pdfFile} target="_blank"
-        className={style.download}>Download
+          className={style.download}>Download
         </a>
         <ReactMarkdown children={content} />
         <Footer footer={footer} display='relative' />
@@ -40,10 +40,9 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 
   // Generate resume pdf 
-  const date = new Date().toLocaleDateString().replace(/\//g,'-')
+  const date = new Date().toLocaleDateString().replace(/\//g, '-')
   const pdfFile = `ricardo-arruda-resume-${date}.pdf`
-
-  await mdToPdf({ path: aboutPath }, { dest: path.join('public/', pdfFile) });
+  await mdToPdf({ path: aboutPath }, { dest: path.join('public/', pdfFile), launch_options: { args: ["--no-sandbox"] } });
 
 
   return (
