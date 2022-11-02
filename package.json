@@ -23,13 +23,13 @@
     "react-intersection-observer": "^8.33.1",
     "react-markdown": "^8.0.0",
     "react-tsparticles": "^1.41.1",
-    "swr": "^1.2.2"
+    "swr": "^1.2.2",
+    "md-to-pdf": "^5.1.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.18",
     "@types/prismjs": "^1.26.0",
     "@types/react": "^17.0.39",
-    "md-to-pdf": "^5.1.0",
     "typescript": "^4.5.5",
     "typescript-plugin-css-modules": "^3.4.0"
   }

@@ -4,9 +4,9 @@ import matter from 'gray-matter';
 import Layout from '../components/Layout'
 import style from '../styles/post.module.css'
 import Footer from '../components/Footer'
-// import path from 'path'
+import path from 'path'
 import { author, footerCopyright, baseURL } from '../config.json'
-// import { mdToPdf } from 'md-to-pdf';
+import { mdToPdf } from 'md-to-pdf';
 
 const About = ({ content, footer, data, pdfFile  }: { pdfFile: string,  content: string, footer: any, data: any }) => {
   return (
@@ -23,8 +23,8 @@ const About = ({ content, footer, data, pdfFile  }: { pdfFile: string,  content:
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const aboutPath = 'content/about.md'
 
+  const aboutPath = 'content/about.md'
   const { content, data } = matter.read(aboutPath)
 
   // const options = { year: "numeric", month: "long", day: "numeric" };
@@ -40,12 +40,10 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 
   // Generate resume pdf 
-  // const date = new Date().toLocaleDateString().replace(/\//g,'-')
+  const date = new Date().toLocaleDateString().replace(/\//g,'-')
+  const pdfFile = `ricardo-arruda-resume-${date}.pdf`
 
-  const pdfFile = `ricardo-arruda-resume-11-26-2021.pdf`
-
-
-  // await mdToPdf({ path: aboutPath }, { dest: path.join('public/', pdfFile) });
+  await mdToPdf({ path: aboutPath }, { dest: path.join('public/', pdfFile) });
 
 
   return (

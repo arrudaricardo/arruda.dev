@@ -62,7 +62,7 @@ blockquote cite::before {
   content: "—— ";
 }
 a {
-  color: #83a8c0
+  color: #83a8c0;
   text-decoration: none;
   border: none;
   transition-property: color;
