@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next'
 import styles from '../styles/hw.module.css'
-import Layout from '../components/Layout'
+import Layout from '../components/ParticlesLayout'
 import ItemHeader from '../components/hw/ItemHeader'
 import useSWR from 'swr';
 import { useInView } from 'react-intersection-observer';

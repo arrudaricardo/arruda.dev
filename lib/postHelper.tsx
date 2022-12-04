@@ -39,7 +39,7 @@ export const getPosts = (): Posts[] => {
       content,
       path,
     };
-  })
+  });
 }
   
 export const postsExist = () => {

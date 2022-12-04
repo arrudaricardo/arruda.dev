@@ -2,7 +2,7 @@ import ReactMarkdown from 'react-markdown'
 import { GetStaticProps } from 'next'
 import Head from "next/head";
 import Prism from 'prismjs'
-import Layout from '../../components/Layout'
+import Layout from '../../components/ParticlesLayout'
 import NavBottom from '../../components/NavBottom'
 import Footer from '../../components/Footer'
 import style from '../../styles/post.module.css'
@@ -65,7 +65,7 @@ export default function PostTemplate({ post, hasPosts, footer }: Post) {
         <Footer footer={footer} display='relative' />
       </>
     </Layout>
-  )
+  );
 }
 
 export async function getStaticPaths() {

@@ -1,7 +1,7 @@
 import { GetStaticProps } from 'next'
 import ReactMarkdown from 'react-markdown'
 import matter from 'gray-matter';
-import Layout from '../components/Layout'
+import Layout from '../components/ParticlesLayout'
 import style from '../styles/post.module.css'
 import Footer from '../components/Footer'
 import path from 'path'

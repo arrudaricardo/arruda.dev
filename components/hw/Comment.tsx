@@ -44,7 +44,7 @@ export default function Comments({ id, parentLevel }: { id: number, parentLevel?
         <>
           <div className='info'>
             <span className=''>
-              <span> by: <Link href={`hw/user/${data.by}`}><a>{data.by}</a></Link></span>
+              <span> by: <Link href={`hw/user/${data.by}`} legacyBehavior><a>{data.by}</a></Link></span>
               {data.time && <span> - {timeAgo.format(new Date(data.time * 1000), 'round')}</span>}
             </span>
           </div>
@@ -54,7 +54,7 @@ export default function Comments({ id, parentLevel }: { id: number, parentLevel?
       ) : <div>Loading</div>
       }
     </div>
-  )
+  );
 
 
 }

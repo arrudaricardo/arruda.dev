@@ -1,6 +1,6 @@
 import Home from '../components/Home'
 import Social from '../components/Social'
-import Layout from '../components/Layout'
+import Layout from '../components/ParticlesLayout'
 import Iam from '../components/Iam'
 import Footer from '../components/Footer'
 import { GetStaticProps } from 'next'

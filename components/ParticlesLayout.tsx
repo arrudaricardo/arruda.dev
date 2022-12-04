@@ -1,7 +1,12 @@
 import Head from "next/head";
 import { ReactElement } from "react";
 import styles from "../styles/layout.module.css";
-import Particles  from "react-tsparticles";
+import Particles from "react-tsparticles";
+
+import { useCallback } from "react";
+import type { Container, Engine } from "tsparticles-engine";
+import { loadFull } from "tsparticles";
+
 
 export type Props = {
   mainStyle?: any;
@@ -9,7 +14,23 @@ export type Props = {
   title: string;
 };
 
+
 const Layout = ({ children, title, mainStyle }: Props) => {
+
+
+    const particlesInit = useCallback(async (engine: Engine) => {
+        console.log(engine);
+
+        // you can initialize the tsParticles instance (engine) here, adding custom shapes or presets
+        // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+        // starting from v2 you can add only the features you need reducing the bundle size
+        await loadFull(engine);
+    }, []);
+
+    const particlesLoaded = useCallback(async (container: Container | undefined) => {
+        await console.log(container);
+    }, []);
+
   const particlesOptions: any = {
     "autoPlay": true,
     "background": {
@@ -517,6 +538,7 @@ const Layout = ({ children, title, mainStyle }: Props) => {
     "zLayers": 100
   }
 
+
   return (
     <div className={styles.body}>
       <Head>
@@ -525,11 +547,11 @@ const Layout = ({ children, title, mainStyle }: Props) => {
       </Head>
       <Particles
         id="tsparticles"
+        init={particlesInit}
+        loaded={particlesLoaded}
         options={particlesOptions}
       />
-      <main className={mainStyle ?? styles.main}>
-        {children}
-      </main>
+      <main className={mainStyle ?? styles.main}>{children}</main>
     </div>
   );
 };

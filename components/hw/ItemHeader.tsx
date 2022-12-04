@@ -14,10 +14,12 @@ export default function ItemHeader({ item, rank }: { item: HWItem, rank?: number
       {
         rank !== undefined && <div className={styles['rank']}>{rank! + 1}.{" "}</div>
       }
-      <Link href={
-        ("url" in item && item.url) ? item.url : `/hw/item/${item.id}`
-      } >
-        <a className={styles['title']}>{item.title}</a>
+      <Link
+        href={
+          ("url" in item && item.url) ? item.url : `/hw/item/${item.id}`
+        }
+        className={styles['title']}>
+        {item.title}
       </Link>
       {
         ("url" in item && item.url) &&
@@ -33,17 +35,18 @@ export default function ItemHeader({ item, rank }: { item: HWItem, rank?: number
       <div className={styles['metadata-table']}>
         {('score' in item && item.score) && <div className={styles["points"]}>{item.score} {item.score > 1 ? "points" : "point"}</div>}
         <div className={styles["by"]}>posted by{" "}
-          <Link prefetch={false} href={`/hw/user/${item.by}`}><a>{item.by}</a></Link>
+          <Link prefetch={false} href={`/hw/user/${item.by}`}>{item.by}</Link>
         </div>
         {("time" in item && item.time) && <div className={styles["time"]}>{timeAgo.format(new Date(item.time * 1000), 'round')}</div>}
         {("kids" in item && item.kids) &&
           <div className={styles["comments"]}>
             <span>
               <span> {item.kids.length} </span>
-              <Link href={`/hw/item/${item.id}`}><a>{item.kids.length > 1 ? 'comments' : 'comment'}</a></Link>
+              <Link href={`/hw/item/${item.id}`}>{item.kids.length > 1 ? 'comments' : 'comment'}</Link>
             </span>
           </div>
         }
       </div>
-    </div >)
+    </div >
+  );
 }

@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import User from '../../../components/hw/User'
-import Layout from '../../../components/Layout'
+import Layout from '../../../components/ParticlesLayout'
 
 export default function UserPage({ id }: { id: string }) {
   return (

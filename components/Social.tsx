@@ -58,10 +58,10 @@ export default function Social({ hasPosts }: Props) {
       </div>
       {hasPosts &&
         <Link href='/posts'>
-          <a>Posts</a>
+          Posts
         </Link>
       }
     </div>
-  )
+  );
 }
 

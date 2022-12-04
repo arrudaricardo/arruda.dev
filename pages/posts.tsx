@@ -1,6 +1,6 @@
 import { GetStaticProps} from 'next'
 import styles from '../styles/posts.module.css'
-import Layout from '../components/Layout'
+import Layout from '../components/ParticlesLayout'
 import {getPosts} from '../lib/postHelper'
 
 type Props = {

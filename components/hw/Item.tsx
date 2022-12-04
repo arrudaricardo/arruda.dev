@@ -3,7 +3,7 @@ import ItemHeader from "./ItemHeader";
 import { sanitize } from 'isomorphic-dompurify';
 import Comment from './Comment'
 import styles from './Item.module.css'
-import Layout from '../Layout'
+import Layout from '../ParticlesLayout'
 
 export default function Item({ item }: { item: HWItem }) {
 
