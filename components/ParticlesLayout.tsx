@@ -4,7 +4,7 @@ import styles from "../styles/layout.module.css";
 import Particles from "react-tsparticles";
 
 import { useCallback } from "react";
-import type { Container, Engine } from "tsparticles-engine";
+import type { Container, Engine, RecursivePartial, IOptions } from "tsparticles-engine";
 import { loadFull } from "tsparticles";
 
 
@@ -31,7 +31,7 @@ const Layout = ({ children, title, mainStyle }: Props) => {
         await console.log(container);
     }, []);
 
-  const particlesOptions: any = {
+  const particlesOptions: RecursivePartial<IOptions> = {
     "autoPlay": true,
     "background": {
       "color": {
@@ -74,11 +74,11 @@ const Layout = ({ children, title, mainStyle }: Props) => {
           "type": "rectangle"
         },
         "onHover": {
-          "enable": true,
+          "enable": false,
           "mode": "connect",
           "parallax": {
             "enable": true,
-            "force": 40,
+            "force": 50,
             "smooth": 10
           }
         },
@@ -86,7 +86,7 @@ const Layout = ({ children, title, mainStyle }: Props) => {
       },
       "modes": {
         "attract": {
-          "distance": 200,
+          "distance": 100,
           "duration": 0.4,
           "easing": "ease-out-quad",
           "factor": 1,
@@ -266,7 +266,7 @@ const Layout = ({ children, title, mainStyle }: Props) => {
       "gradient": [],
       "groups": {},
       "life": {
-        "count": 0,
+        "count": 1,
         "delay": {
           "random": {
             "enable": false,
@@ -278,9 +278,9 @@ const Layout = ({ children, title, mainStyle }: Props) => {
         "duration": {
           "random": {
             "enable": false,
-            "minimumValue": 0.0001
+            "minimumValue": 0
           },
-          "value": 0,
+          "value": 100,
           "sync": false
         }
       },
@@ -314,14 +314,14 @@ const Layout = ({ children, title, mainStyle }: Props) => {
           "value": 90
         },
         "attract": {
-          "distance": 200,
-          "enable": false,
+          "distance": 100,
+          "enable": true,
           "rotate": {
             "x": 600,
             "y": 1200
           }
         },
-        "decay": 0,
+        "decay": 0.001,
         "distance": {},
         "direction": "none",
         "drift": 0,
@@ -353,7 +353,7 @@ const Layout = ({ children, title, mainStyle }: Props) => {
         },
         "random": false,
         "size": false,
-        "speed": 6,
+        "speed": 3,
         "spin": {
           "acceleration": 0,
           "enable": false
@@ -375,8 +375,8 @@ const Layout = ({ children, title, mainStyle }: Props) => {
           "area": 800,
           "factor": 1000
         },
-        "limit": 500,
-        "value": 300
+        "limit": 0,
+        "value": 300 
       },
       "opacity": {
         "random": {
@@ -396,21 +396,21 @@ const Layout = ({ children, title, mainStyle }: Props) => {
       },
       "orbit": {
         "animation": {
-          "count": 0,
-          "enable": false,
-          "speed": 1,
+          "count": 100,
+          "enable": true,
+          "speed": 10,
           "sync": false
         },
-        "enable": false,
-        "opacity": 1,
+        "enable": true,
+        "opacity": 0,
         "rotation": {
           "random": {
-            "enable": false,
-            "minimumValue": 0
+            "enable": true,
+            "minimumValue": 100 
           },
           "value": 45
         },
-        "width": 1
+        "width": 10
       },
       "reduceDuplicates": false,
       "repulse": {
@@ -418,8 +418,8 @@ const Layout = ({ children, title, mainStyle }: Props) => {
           "enable": false,
           "minimumValue": 0
         },
-        "value": 0,
-        "enabled": false,
+        "value": 10,
+        "enabled": true,
         "distance": 1,
         "duration": 1,
         "factor": 1,
@@ -481,7 +481,7 @@ const Layout = ({ children, title, mainStyle }: Props) => {
           "enable": false,
           "speed": 40,
           "sync": false,
-          "destroy": "none",
+          "destroy": "max",
           "startValue": "random",
           "minimumValue": 0.1
         }
