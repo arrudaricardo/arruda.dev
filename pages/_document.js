@@ -37,14 +37,23 @@ class MyDocument extends Document {
             href="/favicon-16x16.png"
           />
           <link rel="manifest" href="/site.webmanifest" />
-          <Script async src="https://www.google-analytics.com/analytics.js" />
+
+
+
           <Script
-            dangerouslySetInnerHTML={{
-              __html: `window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-                          ga('create', 'UA-129215154-4', 'auto');
-                          ga('send', 'pageview');`,
-            }}
+            src="https://www.googletagmanager.com/gtag/js?id=UA-129215154-4"
+            strategy="afterInteractive"
           />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){window.dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129215154-4');
+`}
+          </Script>
+
         </Head>
         <body>
           <Main />
