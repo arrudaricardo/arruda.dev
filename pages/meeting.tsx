@@ -3,7 +3,7 @@ import Layout from '../components/ParticlesLayout'
 import Footer from '../components/Footer'
 
 
-export default function Book() {
+export default function Meeting() {
   return (
     <Layout title='Book Meeting'>
       <>
