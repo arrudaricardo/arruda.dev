@@ -7,7 +7,7 @@ title: Ricardo de Arruda - Resume
 # SKILLS
 + Programing Languages: Javascript, TypeScript, Python, Go, Ruby, Lua, Elixir.
 + Back-end: Flask, Django, SQL, NodeJs ,Express, Next, Meteor, Nest, Jest, Deno, Rails,  Postgresql, MongoDB, MariaDB, DynamoDB, Firebase, Graphql, REST, WASM.
-+ Front-end: React, Vue, Svelte, Flux, Redux, Jest, Cypress, jQuery, Electron, CSS, SCSS, LESS, React Native.
++ Front-end: React, Vue, Svelte, Redux, Jest, Cypress, jQuery, Electron, CSS, SCSS, LESS, React Native.
 + Data Analysis: Pandas, Numpy, Matplotlib, Keras, Jupyter.
 + DevOps: Docker, Serverless, AWS, Azure, GCP, Terraform, Microservices.
 + Web3: Solidity, IPFS, Web3.js, ether.js
