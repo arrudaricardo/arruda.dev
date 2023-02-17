@@ -1,4 +1,5 @@
 import { ReactPropTypes, JSXElementConstructor } from 'react'
+import { Analytics } from '@vercel/analytics/react';
 import Head from 'next/head'
 import '../styles/normalize.css'
 import '../styles/global.css'
@@ -15,6 +16,7 @@ export default function MyApp({ Component, pageProps }: Props) {
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
     <Component {...pageProps} />
+      <Analytics />
   </>
   )
 }
