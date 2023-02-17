@@ -28,3 +28,4 @@ yarn-error.log*
 rss.xml
 
 public/ricardo-arruda-resume-*
+.vercel
