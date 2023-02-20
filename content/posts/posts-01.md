@@ -7,7 +7,8 @@ draft: false
 tags: [React, Hooks, beginner, game]
 ---
 
-## Introduction
+## introduction
+Daneil
 React Hooks is a new addition to [React version 16.8](https://reactjs.org/docs/hooks-intro.html
 ), allowing to use State in Function. I personally prefer to work with Function over Class in Javascript and now we can do it.
 The Idea for this Tutorial is to reproduce the game [Tic-Tac-Toe](https://en.wikipedia.org/wiki/Tic-tac-toe

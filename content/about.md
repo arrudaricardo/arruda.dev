@@ -42,4 +42,4 @@ title: Ricardo de Arruda - Resume
 ---
 # LANGUAGE
 **English** - Fluent
-**Portuguese** - Fluent 
+**Portuguese** - Fluent
