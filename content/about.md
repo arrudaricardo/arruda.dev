@@ -14,7 +14,7 @@ title: Ricardo de Arruda - Resume
 ---
 # EXPERIENCE
 
-## Full Stack Engineer
+## Full Stack Software Engineer
 ### [Gorgias](https//www.gorgias.com), Remote, April 2022 – Present
 + Gorgias provides an integrated helpdesk for e-commerce brands, making it easy to deliver personalized support and automation across multiple channels.
 
@@ -35,11 +35,11 @@ title: Ricardo de Arruda - Resume
 + Front-end development with React for e-commerce websites.
 ---
 # EDUCATION
-* **App Academy - San Francisco, USA** An immersive 1000-hour full-stack software development course with focus on full stack web development (autumn 2019)  
-* **University of Central Oklahoma - Edmond, USA**  International Exchange Student (2015)
-* **Pontifical Catholic University of Paraná - Curitiba, Brazil** Business Administration (2014)
-* **State University of Londrina Londrina - Londrina, Brazil** BS - Law   (2012) 
++ App Academy - San Francisco, USA** An immersive 1000-hour full-stack software development course with focus on full stack web development (autumn 2019)  
++ University of Central Oklahoma - Edmond, USA**  International Exchange Student (2015)
++ Pontifical Catholic University of Paraná - Curitiba, Brazil** Business Administration (2014)
++ State University of Londrina Londrina - Londrina, Brazil** BS - Law   (2012) 
 ---
 # LANGUAGE
-**English** - Fluent
-**Portuguese** - Fluent
++ **English** - Fluent
++ **Portuguese** - Fluent
