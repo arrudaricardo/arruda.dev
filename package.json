@@ -1,5 +1,5 @@
 {
-  "name": "dearruda_next",
+  "name": "arruda.dev",
   "scripts": {
     "dev": "next",
     "build": "next build",
