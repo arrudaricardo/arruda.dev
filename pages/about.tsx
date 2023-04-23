@@ -55,10 +55,18 @@ export const getStaticProps: GetStaticProps = async () => {
     { path: aboutPath },
     {
       dest: path.join("public/", pdfFile),
+      document_title: "Ricardo Arruda Resume",
       stylesheet: [path.join("styles/", "global.css")],
-      devtools: false,
+      css: `
+         .markdown-body { font-size: 0.7rem; padding: 0.5rem 0.1rem; }
+         .page-break { page-break-after: always; }
+         .markdown-body pre > code { white-space: pre-wrap; }
+         .markdown-body hr { padding: 0, margin: 0; }
+      `,
+      body_class: ["markdown-body"],
       pdf_options: {
-        margin: { top: "1cm", right: "1cm", bottom: "1cm", left: "1cm" },
+        margin: { top: 0, right: 0, bottom: 0, left: 0 },
+        pageRanges: "1-1", 
         format: "a4",
         printBackground: true,
       },
