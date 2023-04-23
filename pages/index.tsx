@@ -1,31 +1,43 @@
-import Home from '../components/Home'
-import Social from '../components/Social'
-import Layout from '../components/ParticlesLayout'
-import Iam from '../components/Iam'
-import Footer from '../components/Footer'
-import { GetStaticProps } from 'next'
-import { postsExist } from '../lib/postHelper'
-import style from '../styles/home.module.css'
-import Head from 'next/head'
-import { author, footerCopyright, baseURL, title, description, ogimage } from '../config.json'
-import { genRssFile } from '../lib/genRss'
-import { useState, useEffect, useRef } from 'react'
-import { useSpring, useChain, animated, useSpringRef, config } from '@react-spring/web'
-
+import Home from "../components/Home";
+import Social from "../components/Social";
+import Layout from "../components/ParticlesLayout";
+import Iam from "../components/Iam";
+import Footer from "../components/Footer";
+import { GetStaticProps } from "next";
+import { postsExist } from "../lib/postHelper";
+import style from "../styles/home.module.css";
+import Head from "next/head";
+import {
+  author,
+  footerCopyright,
+  baseURL,
+  title,
+  description,
+  ogimage,
+} from "../config.json";
+import { genRssFile } from "../lib/genRss";
+import { useState, useEffect, useRef } from "react";
+import {
+  useSpring,
+  useChain,
+  animated,
+  useSpringRef,
+  config,
+} from "@react-spring/web";
 
 type Index = {
   footer?: {
-    year: number,
-    author: string,
-    link: string,
-    copyRight: string,
-  }
-  hasPosts: boolean
-}
+    year: number;
+    author: string;
+    link: string;
+    copyRight: string;
+  };
+  hasPosts: boolean;
+};
 
 export default function Index({ hasPosts, footer }: Index) {
-  const intervals = useRef<ReturnType<typeof setTimeout>[]>([])
-  const [showIam, setShowIam] = useState(false)
+  const intervals = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const [showIam, setShowIam] = useState(false);
   // const randomColor = useCallback(() => '#' + Math.floor(Math.random() * 16777215).toString(16), [])
 
   const titleSpringColor = useSpring({
@@ -41,49 +53,52 @@ export default function Index({ hasPosts, footer }: Index) {
       color: "white",
     },
     // from: { opacity: 0, color: 'red' },
-  })
+  });
 
-  const titleRef = useSpringRef()
+  const titleRef = useSpringRef();
   const titleSpring = useSpring({
     ref: titleRef,
     config: {
       ...config.stiff,
-      clamp: false
+      clamp: false,
     },
-    from: { fontSize: '0rem' },
-    to: { fontSize: '2.5rem' }
-  })
-  const socialRef = useSpringRef()
+    from: { fontSize: "0rem" },
+    to: { fontSize: "2.5rem" },
+  });
+  const socialRef = useSpringRef();
   const socialSpring = useSpring({
     ref: socialRef,
     config: config.gentle,
     delay: 100,
     from: {
-      opacity: 0
+      opacity: 0,
     },
     to: {
-      opacity: 1
-    }
-  })
-  const iamGapRef = useSpringRef()
+      opacity: 1,
+    },
+  });
+  const iamGapRef = useSpringRef();
   const iamGapSpring = useSpring({
     ref: iamGapRef,
     delay: 500,
-    from: { height: '0rem' },
-    to: { height: '3.8rem' }
-  })
+    from: { height: "0rem" },
+    to: { height: "3.8rem" },
+  });
 
-  useChain([titleRef, socialRef, iamGapRef])
-
+  useChain([titleRef, socialRef, iamGapRef]);
 
   useEffect(() => {
-    intervals.current = []
-    intervals.current.push(setTimeout(() => { setShowIam(true) }, 3200))
-    return () => intervals.current.forEach(clearTimeout)
-  }, [])
+    intervals.current = [];
+    intervals.current.push(
+      setTimeout(() => {
+        setShowIam(true);
+      }, 3200)
+    );
+    return () => intervals.current.forEach(clearTimeout);
+  }, []);
 
   return (
-    <Layout title='Home'>
+    <Layout title="Home">
       <>
         <Head>
           <meta property="og:url" content={baseURL} key="ogurl" />
@@ -95,19 +110,14 @@ export default function Index({ hasPosts, footer }: Index) {
           <>
             <animated.div
               className={style["title-container"]}
-              style={titleSpring} >
-              <animated.h1
-                style={titleSpringColor}
-                className={style.title}
-              >
+              style={titleSpring}
+            >
+              <animated.h1 style={titleSpringColor} className={style.title}>
                 {title}
               </animated.h1>
             </animated.div>
-            <animated.div
-              style={iamGapSpring} >
-              {showIam &&
-                <Iam />
-              }
+            <animated.div style={iamGapSpring}>
+              {showIam && <Iam />}
             </animated.div>
             <animated.div
               style={socialSpring}
@@ -115,22 +125,22 @@ export default function Index({ hasPosts, footer }: Index) {
             />
           </>
         </Home>
-        <Footer footer={footer} display='fixed' />
+        <Footer footer={footer} display="fixed" />
       </>
     </Layout>
-  )
+  );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  genRssFile()
-  const dateNow = new Date()
-  const hasPosts = postsExist()
+  genRssFile();
+  const dateNow = new Date();
+  const hasPosts = postsExist();
   const footer = {
     author: author.name,
     copyRight: footerCopyright,
     link: baseURL,
     year: dateNow.getFullYear(),
-  }
+  };
 
   return {
     props: {
@@ -138,4 +148,4 @@ export const getStaticProps: GetStaticProps = async () => {
       footer,
     },
   };
-}
+};

@@ -1,21 +1,18 @@
-import config from '../config.json'
-import style from '../styles/home.module.css'
-import { ReactElement } from 'react'
-
+import config from "../config.json";
+import style from "../styles/home.module.css";
+import { ReactElement } from "react";
 
 type Props = {
-  children: ReactElement
-}
+  children: ReactElement;
+};
 
-const Home = ({children}: Props ) => {
+const Home = ({ children }: Props) => {
   return (
-  <div className={ style.center}>
-      { children }
-      { config.subTitle && <p className={ style.subtitle} >{ config.subTitle }</p> }
-  </div>
-  )
-}
+    <div className={style.center}>
+      {children}
+      {config.subTitle && <p className={style.subtitle}>{config.subTitle}</p>}
+    </div>
+  );
+};
 
-
-
-export default Home
+export default Home;

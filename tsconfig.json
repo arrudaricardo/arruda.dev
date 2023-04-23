@@ -17,10 +17,7 @@
     ],
     "target": "esnext",
     "module": "esnext",
-    "lib": [
-      "esnext",
-      "DOM"
-    ],
+    "lib": ["esnext", "DOM"],
     "allowSyntheticDefaultImports": true,
     "noUnusedLocals": true,
     "jsx": "preserve",
@@ -34,9 +31,7 @@
     "isolatedModules": true,
     "incremental": true
   },
-  "exclude": [
-    "node_modules"
-  ],
+  "exclude": ["node_modules"],
   "include": [
     "next-env.d.ts",
     "**/*.ts",

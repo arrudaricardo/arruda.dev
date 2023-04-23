@@ -39,7 +39,7 @@ function genPostsItems() {
     }
   });
 
-  return items
+  return items;
 }
 
 export function genRssFile() {

@@ -2,28 +2,33 @@ import { useEffect, useState } from "react";
 import styles from "../styles/footer.module.css";
 
 type Props = {
-  display?: 'relative' | 'fixed',
+  display?: "relative" | "fixed";
   footer?: {
     year?: number;
     author?: string;
     link?: string;
     copyRight?: string;
   };
-}
+};
 
 const year = new Date().getFullYear();
-const author = 'Ricardo de Arruda'
+const author = "Ricardo de Arruda";
 
 export default function Footer({ footer, display }: Props) {
-  const [origin, setOrigin] = useState<string | undefined>(undefined)
+  const [origin, setOrigin] = useState<string | undefined>(undefined);
   useEffect(() => {
-    setOrigin(global.window?.location?.origin)
-  }, [global.window?.location?.origin])
+    setOrigin(global.window?.location?.origin);
+  }, [global.window?.location?.origin]);
 
   return (
-    <footer className={display === 'relative' ? styles.footerRelative : styles.footerFixed}>
+    <footer
+      className={
+        display === "relative" ? styles.footerRelative : styles.footerFixed
+      }
+    >
       <p className={styles.footerP}>
-        © {footer?.year ?? year} <a href={footer?.link ?? origin ?? ""}>{footer?.author ?? author}</a>
+        © {footer?.year ?? year}{" "}
+        <a href={footer?.link ?? origin ?? ""}>{footer?.author ?? author}</a>
         {" · "}
         <a
           href="https://creativecommons.org/licenses/by-nc/4.0/"
@@ -53,5 +58,5 @@ export default function Footer({ footer, display }: Props) {
         </a>
       </p>
     </footer>
-  )
+  );
 }

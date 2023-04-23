@@ -1,12 +1,12 @@
-import Social from './Social'
-import style from '../styles/navbottom.module.css'
-import config from '../config.json'
+import Social from "./Social";
+import style from "../styles/navbottom.module.css";
+import config from "../config.json";
 
 type Props = {
   hasPosts?: boolean;
-}
+};
 
-export default function NavBottom({hasPosts}: Props) {
+export default function NavBottom({ hasPosts }: Props) {
   return (
     <header id="site-header" className={style.root}>
       <div className={style.wrapper}>
@@ -14,16 +14,16 @@ export default function NavBottom({hasPosts}: Props) {
           <div className={style.branding}>
             <a href={config.baseURL}> {config.title}</a>
           </div>
-          { hasPosts &&
+          {hasPosts && (
             <nav className={style.nav}>
-              <a href={config.baseURL + '/posts'}>Posts</a>
+              <a href={config.baseURL + "/posts"}>Posts</a>
             </nav>
-          }
+          )}
         </div>
         <div className={style.navRight}>
           <Social hasPosts={hasPosts} />
         </div>
       </div>
     </header>
-  )
+  );
 }

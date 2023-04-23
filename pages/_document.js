@@ -38,8 +38,6 @@ class MyDocument extends Document {
           />
           <link rel="manifest" href="/site.webmanifest" />
 
-
-
           <Script
             src="https://www.googletagmanager.com/gtag/js?id=UA-129215154-4"
             strategy="afterInteractive"
@@ -53,7 +51,6 @@ class MyDocument extends Document {
   gtag('config', 'UA-129215154-4');
 `}
           </Script>
-
         </Head>
         <body>
           <Main />
