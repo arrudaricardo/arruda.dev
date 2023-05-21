@@ -5,11 +5,12 @@
     "build": "next build",
     "start": "next start",
     "pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\"",
-    "test": "vitest"
+    "test": "vitest",
+    "test:e2e": "playwright test"
   },
   "engines": {
     "npm": ">=7.0.0",
-    "node": "14.x"
+    "node": "18.x"
   },
   "dependencies": {
     "@react-spring/web": "^9.7.2",
@@ -31,6 +32,7 @@
     "tsparticles": "^2.9.3"
   },
   "devDependencies": {
+    "@playwright/test": "^1.34.0",
     "@testing-library/react": "^14.0.0",
     "@types/node": "^20.2.1",
     "@types/prismjs": "^1.26.0",
