@@ -10,7 +10,7 @@ function Header({ id }: { id: number }) {
 
   const { data, error } = useSWR<HWItem | HWComment | null>(
     id && inView ? ["/item", id] : null,
-    async (api, id) => {
+    async (api: string, id: string) => {
       const res = await fetch(
         `https://hacker-news.firebaseio.com/v0${api}/${id}.json`
       );
@@ -51,12 +51,15 @@ function Header({ id }: { id: number }) {
 }
 
 export default function User({ id }: { id: string }) {
-  const { data, error } = useSWR<HWUser>(["/user", id], async (api, id) => {
-    const res = await fetch(
-      `https://hacker-news.firebaseio.com/v0${api}/${id}.json`
-    );
-    return (await res.json()) as HWUser;
-  });
+  const { data, error } = useSWR<HWUser>(
+    ["/user", id],
+    async (api: string, id: string) => {
+      const res = await fetch(
+        `https://hacker-news.firebaseio.com/v0${api}/${id}.json`
+      );
+      return (await res.json()) as HWUser;
+    }
+  );
 
   const [activities, setActivities] = useState<ReactNode[] | null>(null);
 

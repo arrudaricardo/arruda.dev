@@ -18,12 +18,15 @@ export default function Comments({
   parentLevel?: number;
 }) {
   const [level] = useState(parentLevel === undefined ? 0 : parentLevel);
-  const { data } = useSWR<HWComment>([`/item`, id], async (api, id) => {
-    const res = await fetch(
-      `https://hacker-news.firebaseio.com/v0${api}/${id}.json`
-    );
-    return (await res.json()) as HWComment;
-  });
+  const { data } = useSWR<HWComment>(
+    [`/item`, id],
+    async (api: string, id: string) => {
+      const res = await fetch(
+        `https://hacker-news.firebaseio.com/v0${api}/${id}.json`
+      );
+      return (await res.json()) as HWComment;
+    }
+  );
   const color = useMemo(
     () => [
       (Math.random() * 256) >> 0,

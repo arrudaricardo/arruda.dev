@@ -12,7 +12,7 @@ export default function HwItem({
 }) {
   const { data: itemData } = useSWR(
     ["/item", id],
-    async (api, id) => {
+    async (api: string, id: string) => {
       const res = await fetch(
         `https://hacker-news.firebaseio.com/v0${api}/${id}.json`
       );

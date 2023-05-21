@@ -18,7 +18,7 @@ function Story({
 
   const { data: hwItem } = useSWR<HWItem | null>(
     id && inView ? ["/item", id] : null,
-    async (api, id) => {
+    async (api: string, id: string) => {
       const res = await fetch(
         `https://hacker-news.firebaseio.com/v0${api}/${id}.json`
       );
