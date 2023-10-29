@@ -1,23 +1,34 @@
-import { social } from "../config.json";
+"use client"
+
 import style from "../styles/social.module.css";
 import socialIcons from "./utils/socialIcons";
 import Link from "next/link";
 import { useSprings, animated } from "@react-spring/web";
 
-type ISocial = typeof social;
+const social = {
+  cv: {
+    url: "/about",
+  },
+  github: {
+    url: "https://github.com/arrudaricardo/",
+  },
+  linkedin: {
+    url: "https://www.linkedin.com/in/ricardodearruda/",
+  },
+  email: {
+    url: "mailto:ricardo@arruda.dev?subject=Hey%20Ricardo.&body=",
+  },
+};
+
 const socialList = Object.keys(social).map((s) => ({
   element: socialIcons[s],
-  type: s as keyof ISocial,
+  type: s as keyof typeof social,
 }));
 
 const randomColor = () =>
   "#" + (Math.random().toString(16) + "000000").substring(2, 8);
 
-interface Props {
-  hasPosts?: boolean;
-}
-
-export default function Social({ hasPosts }: Props) {
+export default function Social() {
   const socialSpring = useSprings(
     socialList.length,
     socialList.map((_, i) => {
@@ -34,7 +45,7 @@ export default function Social({ hasPosts }: Props) {
           color,
         },
       };
-    })
+    }),
   );
 
   return (
@@ -44,17 +55,19 @@ export default function Social({ hasPosts }: Props) {
           const url = social[socialList[i].type].url;
           const iconElement = socialList[i].element;
           return (
-            <animated.a
+            <Link
               key={i}
               href={url}
               target={url.includes("http") ? "_blank" : "_self"}
-              style={s}
-              children={iconElement({ className: style.icon })}
-            />
+            >
+              <animated.div
+                style={s}
+                children={iconElement({ className: style.icon })}
+              />
+            </Link>
           );
         })}
       </div>
-      {hasPosts && <Link href="/posts">Posts</Link>}
     </div>
   );
 }

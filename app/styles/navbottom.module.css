@@ -1,6 +1,6 @@
 .root {
   position: fixed;
-  z-index: 0;
+  z-index: 1;
   bottom: 0;
   width: 100%;
   box-sizing: border-box;
@@ -11,6 +11,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0.5em 0;
   font-size: 1.1rem;
 }
 .branding {

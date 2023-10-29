@@ -1,26 +1,29 @@
 import matter from "gray-matter";
 import { escape } from "querystring";
-import { readdirSync, readFileSync } from "fs";
+import { readdir, readFile } from "fs/promises";
 
 export interface Posts {
   frontmatter: {
     [T: string]: any;
     date?: string;
-    title?: string;
     description?: string;
+    author?: string;
+    draft?: boolean;
+    tags?: Array<string>;
+    title?: string;
   };
   slug: string;
   path: string;
   content: string;
 }
 
-export const getPosts = (): Posts[] => {
-  const files: Array<string> = readdirSync(`${process.cwd()}/content/posts`);
+export const getPosts = async (): Promise<Posts[]> => {
+  const files: Array<string> = await readdir(`${process.cwd()}/content/posts`);
 
-  return files.map((filename) => {
+  const posts = files.map(async (filename) => {
     const path = `content/posts/${filename}`;
-    const file = readFileSync(path).toString();
-    const { data, content } = matter(file);
+    const file = await readFile(path);
+    const { data, content } = matter(file.toString());
     // Convert post date to format: Month day, Year
     //TODO: check config Date
     const options = { year: "numeric", month: "long", day: "numeric" };
@@ -40,18 +43,6 @@ export const getPosts = (): Posts[] => {
       path,
     };
   });
-};
 
-export const postsExist = () => {
-  // const posts = true //opendirSync('content/posts')
-  const posts = readdirSync(`${process.cwd()}/content/posts`);
-  if (posts.length === 0) return false;
-  const hasPosts = posts.some((post) => {
-    if (post.search(/\.md$/) !== -1) {
-      return true;
-    } else {
-      return false;
-    }
-  });
-  return hasPosts;
+  return Promise.all(posts) as Promise<Posts[]>;
 };

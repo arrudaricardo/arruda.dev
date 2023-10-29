@@ -1,0 +1,27 @@
+.root {
+    box-sizing: border-box;
+    font-size: calc(0.6em + 0.6vw);
+    line-height: calc(1.6rem + 1vw);
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    padding-bottom: 3rem;
+    text-align: justify;
+}
+@media (min-width:641px)  {
+  .root {
+    margin-left: 20vw;
+    margin-right: 20vw;
+  }
+}
+
+.link {
+    color:#8cd1ff;
+}
+
+.download {
+    position: fixed;
+    top: 1em;
+    right: 1em;
+}

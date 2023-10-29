@@ -1,12 +1,10 @@
 {
-  "title": "Ricardo de Arruda",
   "subTitle": null,
   "baseURL": "https://arruda.dev",
   "copyright": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.",
   "defaultContentLanguage": "en",
   "languageCode": "en-us",
   "description": "Ricardo de Arruda personal web-page",
-  "ogimage": "https://iili.io/5ifTF4.md.png",
   "footerCopyright": "CC",
   "author": {
     "name": "Ricardo de Arruda"
@@ -20,25 +18,5 @@
       ["I'm a", "Full-Stack Dev 👨‍💻"],
       ["I ❤️", "the web"]
     ]
-  },
-  "social": {
-    "cv": {
-      "url": "/about"
-    },
-    "github": {
-      "url": "https://github.com/arrudaricardo/"
-    },
-    "linkedin": {
-      "url": "https://www.linkedin.com/in/ricardodearruda/"
-    },
-    "instagram": {
-      "url": "https://www.instagram.com/ricarruda7/"
-    },
-    "devto": {
-      "url": "https://dev.to/arrudaricardo/"
-    },
-    "email": {
-      "url": "mailto:ricardo@arruda.dev?subject=Hey%20Ricardo.&body="
-    }
   }
 }

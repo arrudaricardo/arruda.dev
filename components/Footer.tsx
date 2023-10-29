@@ -1,20 +1,24 @@
+"use client";
+
 import { useEffect, useState } from "react";
+import Link from 'next/link';
 import styles from "../styles/footer.module.css";
 
 type Props = {
   display?: "relative" | "fixed";
-  footer?: {
-    year?: number;
-    author?: string;
-    link?: string;
-    copyRight?: string;
-  };
+};
+
+const dateNow = new Date();
+const footer = {
+  author: "Ricardo de Arruda",
+  copyRight: "CC",
+  link: "https://arruda.dev",
+  year: dateNow.getFullYear(),
 };
 
 const year = new Date().getFullYear();
-const author = "Ricardo de Arruda";
 
-export default function Footer({ footer, display }: Props) {
+export default function Footer({ display }: Props) {
   const [origin, setOrigin] = useState<string | undefined>(undefined);
   useEffect(() => {
     setOrigin(global.window?.location?.origin);
@@ -28,7 +32,7 @@ export default function Footer({ footer, display }: Props) {
     >
       <p className={styles.footerP}>
         © {footer?.year ?? year}{" "}
-        <a href={footer?.link ?? origin ?? ""}>{footer?.author ?? author}</a>
+        <Link href={"/"}>{footer?.author}</Link>
         {" · "}
         <a
           href="https://creativecommons.org/licenses/by-nc/4.0/"

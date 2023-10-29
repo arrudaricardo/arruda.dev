@@ -1,58 +1,47 @@
-import { GetStaticProps } from "next";
-import ReactMarkdown from "react-markdown";
-import matter from "gray-matter";
-import Layout from "../components/ParticlesLayout";
-import style from "../styles/post.module.css";
-import Footer from "../components/Footer";
 import path from "path";
-import { author, footerCopyright, baseURL } from "../config.json";
+import fs from "node:fs";
 import { mdToPdf } from "md-to-pdf";
 
-const About = ({
-  content,
-  footer,
-  data,
-  pdfFile,
-}: {
-  pdfFile: string;
-  content: string;
-  footer: any;
-  data: any;
-}) => {
-  return (
-    <Layout title={"About"}>
-      <div className={style.root}>
-        <a href={pdfFile} target="_blank" className={style.download}>
-          Download
-        </a>
-        <ReactMarkdown children={content} />
-        <Footer footer={footer} display="relative" />
-      </div>
-    </Layout>
-  );
-};
-
-export const getStaticProps: GetStaticProps = async () => {
-  const aboutPath = "content/about.md";
-  const { content, data } = matter.read(aboutPath);
-
-  const dateNow = new Date();
-  const footer = {
-    author: author.name,
-    copyRight: footerCopyright,
-    link: baseURL,
-    year: dateNow.getFullYear(),
-  };
-
-  // Generate resume pdf
+export default async function PdfDownload() {
+  const { fileName } = await generatePdf();
   const date = new Date().toLocaleDateString().replace(/\//g, "-");
-  const pdfFile = `ricardo-arruda-resume-generated-${date}.pdf`;
+
+  return (
+    <a
+      href={fileName}
+      target="_blank"
+      download={fileName.replace(/\.pdf/g, `-${date}.pdf`)}
+    >
+      Download
+    </a>
+  );
+}
+
+export const generatePdf = async () => {
+  const aboutPath = "content/about.md";
+  const globalStylesheet = path.resolve("styles/", "global.css");
+  const publicFolder = path.resolve(".", "public");
+
+  // Update if need highlight style, if not use global style raise error due wrong path.
+  const highlight_style = path.resolve("styles/", "global");
+
+  const fileName = `ricardo-arruda-resume-generated.pdf`;
+
+  const fileExists = fs.existsSync(publicFolder);
+  if (fileExists) {
+    return {
+      fileName,
+    };
+  }
+
   await mdToPdf(
     { path: aboutPath },
     {
-      dest: path.join("public/", pdfFile),
+      highlight_style,
+      basedir: __dirname,
+      dest: path.join(publicFolder, fileName),
       document_title: "Ricardo Arruda Resume",
-      stylesheet: [path.join("styles/", "global.css")],
+      stylesheet: [globalStylesheet],
       css: `
          .markdown-body { font-size: 0.7rem; padding: 0.5rem 0.1rem; }
          .page-break { page-break-after: always; }
@@ -75,24 +64,17 @@ export const getStaticProps: GetStaticProps = async () => {
             </div>
         `,
         margin: { top: 0, right: 0, bottom: 30, left: 0 },
-        pageRanges: "1-1", 
+        pageRanges: "1-1",
         format: "a4",
         printBackground: true,
       },
       launch_options: {
         args: ["--no-sandbox"],
       },
-    }
+    },
   );
 
   return {
-    props: {
-      content,
-      footer,
-      data,
-      pdfFile,
-    },
+    fileName,
   };
 };
-
-export default About;

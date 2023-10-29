@@ -59,10 +59,3 @@
   text-align: center;
   margin-top: 0.5em;
 }
-
-
-.social {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}

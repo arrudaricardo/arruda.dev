@@ -1,27 +1,18 @@
 import Social from "./Social";
+import Link from "next/link";
 import style from "../styles/navbottom.module.css";
-import config from "../config.json";
 
-type Props = {
-  hasPosts?: boolean;
-};
-
-export default function NavBottom({ hasPosts }: Props) {
+export default function NavBottom() {
   return (
     <header id="site-header" className={style.root}>
       <div className={style.wrapper}>
         <div className={style.navLeft}>
-          <div className={style.branding}>
-            <a href={config.baseURL}> {config.title}</a>
-          </div>
-          {hasPosts && (
-            <nav className={style.nav}>
-              <a href={config.baseURL + "/posts"}>Posts</a>
-            </nav>
-          )}
+          <nav className={style.nav}>
+            <Link href={"/posts"}>Posts</Link>
+          </nav>
         </div>
         <div className={style.navRight}>
-          <Social hasPosts={hasPosts} />
+          <Social />
         </div>
       </div>
     </header>

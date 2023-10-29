@@ -1,5 +1,6 @@
-import Head from "next/head";
-import { ReactElement } from "react";
+"use client";
+
+import { ReactElement, ReactNode } from "react";
 import styles from "../styles/layout.module.css";
 import Particles from "react-tsparticles";
 
@@ -13,12 +14,10 @@ import type {
 import { loadFull } from "tsparticles";
 
 export type Props = {
-  mainStyle?: any;
-  children: ReactElement;
-  title: string;
+  children: ReactNode;
 };
 
-const Layout = ({ children, title, mainStyle }: Props) => {
+const Layout = ({ children }: Props) => {
   const particlesInit = useCallback(async (engine: Engine) => {
     console.log(engine);
 
@@ -32,7 +31,7 @@ const Layout = ({ children, title, mainStyle }: Props) => {
     async (container: Container | undefined) => {
       await console.log(container);
     },
-    []
+    [],
   );
 
   const particlesOptions: RecursivePartial<IOptions> = {
@@ -69,7 +68,7 @@ const Layout = ({ children, title, mainStyle }: Props) => {
       events: {
         onClick: {
           enable: true,
-          mode: "repulse",
+          mode: "push",
         },
         onDiv: {
           selectors: ["#iam0", "#iam1"],
@@ -78,12 +77,12 @@ const Layout = ({ children, title, mainStyle }: Props) => {
           type: "rectangle",
         },
         onHover: {
-          enable: false,
+          enable: true,
           mode: "connect",
           parallax: {
             enable: true,
-            force: 50,
-            smooth: 10,
+            force: 100,
+            smooth: 50,
           },
         },
         resize: true,
@@ -198,19 +197,19 @@ const Layout = ({ children, title, mainStyle }: Props) => {
           horizontal: {
             random: {
               enable: true,
-              minimumValue: 0.1,
+              minimumValue: 0.5,
             },
             value: 1,
           },
           vertical: {
             random: {
               enable: true,
-              minimumValue: 0.1,
+              minimumValue: 0.5,
             },
             value: 1,
           },
         },
-        enable: false,
+        enable: true,
         mode: "bounce",
         overlap: {
           enable: true,
@@ -246,7 +245,7 @@ const Layout = ({ children, title, mainStyle }: Props) => {
       destroy: {
         mode: "none",
         split: {
-          count: 1,
+          count: 10,
           factor: {
             random: {
               enable: false,
@@ -260,8 +259,8 @@ const Layout = ({ children, title, mainStyle }: Props) => {
               minimumValue: 0,
             },
             value: {
-              min: 4,
-              max: 9,
+              min: 1,
+              max: 18,
             },
           },
           sizeOffset: true,
@@ -273,16 +272,16 @@ const Layout = ({ children, title, mainStyle }: Props) => {
         count: 1,
         delay: {
           random: {
-            enable: false,
+            enable: true,
             minimumValue: 0,
           },
-          value: 0,
+         value: 80,
           sync: false,
         },
         duration: {
           random: {
-            enable: false,
-            minimumValue: 0,
+            enable: true,
+            minimumValue: 50,
           },
           value: 100,
           sync: false,
@@ -318,14 +317,14 @@ const Layout = ({ children, title, mainStyle }: Props) => {
           value: 90,
         },
         attract: {
-          distance: 100,
+          distance: 10,
           enable: true,
           rotate: {
             x: 600,
             y: 1200,
           },
         },
-        decay: 0.001,
+        decay: 0.0001,
         distance: {},
         direction: "none",
         drift: 0,
@@ -364,8 +363,8 @@ const Layout = ({ children, title, mainStyle }: Props) => {
         },
         straight: false,
         trail: {
-          enable: false,
-          length: 10,
+          enable: true,
+          length: 2,
           fillColor: {
             value: "#000000",
           },
@@ -380,18 +379,18 @@ const Layout = ({ children, title, mainStyle }: Props) => {
           factor: 1000,
         },
         limit: 0,
-        value: 300,
+        value: 100,
       },
       opacity: {
         random: {
           enable: false,
-          minimumValue: 0.1,
+          minimumValue: 0,
         },
-        value: 0.5,
+        value: 2,
         animation: {
-          count: 0,
-          enable: false,
-          speed: 1,
+          count: 5,
+          enable: true,
+          speed: 0.2,
           sync: false,
           destroy: "none",
           startValue: "random",
@@ -402,21 +401,21 @@ const Layout = ({ children, title, mainStyle }: Props) => {
         animation: {
           count: 100,
           enable: true,
-          speed: 10,
+          speed: 100,
           sync: false,
         },
         enable: true,
-        opacity: 0,
+        opacity: 1,
         rotation: {
           random: {
             enable: true,
-            minimumValue: 100,
+            minimumValue: 50,
           },
-          value: 45,
+          value: 100,
         },
         width: 10,
       },
-      reduceDuplicates: false,
+      reduceDuplicates: true,
       repulse: {
         random: {
           enable: false,
@@ -468,17 +467,46 @@ const Layout = ({ children, title, mainStyle }: Props) => {
         },
       },
       shape: {
-        options: {},
-        type: "circle",
+        type: ["image"],
+        options: {
+          image: [
+            "chrome.png",
+            "aws.png",
+            "docker.png",
+            "gcp.png",
+            "nodejs.png",
+            "postgresql.png",
+            "react.png",
+            "elixir.png",
+            "golang.png",
+            "html5.png",
+            "internet_explorer.png",
+            "javascript.png",
+            "python.png",
+            "ruby.png",
+            "rust.png",
+            "safari.png",
+            "typescript.png",
+          ].map((src) => ({
+            src: `/img/${src}`,
+            width: 32,
+            height: 32,
+            particles: {
+              size: {
+                value: 14,
+              },
+            },
+          })),
+        },
       },
       size: {
         random: {
           enable: true,
-          minimumValue: 1,
+          minimumValue: 8,
         },
         value: {
-          min: 1,
-          max: 5,
+          min: 5,
+          max: 14,
         },
         animation: {
           count: 0,
@@ -510,7 +538,7 @@ const Layout = ({ children, title, mainStyle }: Props) => {
       twinkle: {
         lines: {
           enable: false,
-          frequency: 0.05,
+          frequency: 1,
           opacity: 1,
         },
         particles: {
@@ -520,16 +548,16 @@ const Layout = ({ children, title, mainStyle }: Props) => {
         },
       },
       wobble: {
-        distance: 5,
-        enable: false,
-        speed: 50,
+        distance: 1,
+        enable: true,
+        speed: 1,
       },
       zIndex: {
         random: {
           enable: false,
           minimumValue: 0,
         },
-        value: 0,
+        value: 1,
         opacityRate: 1,
         sizeRate: 1,
         velocityRate: 1,
@@ -544,17 +572,13 @@ const Layout = ({ children, title, mainStyle }: Props) => {
 
   return (
     <div className={styles.body}>
-      <Head>
-        <title>{title}</title>
-        <meta property="og:title" content={title} />
-      </Head>
       <Particles
         id="tsparticles"
         init={particlesInit}
         loaded={particlesLoaded}
         options={particlesOptions}
       />
-      <main className={mainStyle ?? styles.main}>{children}</main>
+      <main className={styles.main}>{children}</main>
     </div>
   );
 };
