@@ -3,7 +3,10 @@ import fs from "fs";
 import { mdToPdf } from "md-to-pdf";
 
 export default async function PdfDownload() {
-  const { fileName } = await generatePdf();
+  // const { fileName } = await generatePdf();
+  const  fileName  = ""
+        
+
   const date = new Date().toLocaleDateString().replace(/\//g, "-");
 
   return (
@@ -69,6 +72,7 @@ export const generatePdf = async () => {
         printBackground: true,
       },
       launch_options: {
+        headless: true,
         args: ["--no-sandbox"],
       },
     },
