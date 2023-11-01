@@ -27,7 +27,7 @@ export const generatePdf = async () => {
 
   const fileName = `ricardo-arruda-resume-generated.pdf`;
 
-  const fileExists = fs.existsSync(publicFolder);
+  const fileExists = fs.existsSync(path.join(publicFolder, fileName));
   if (fileExists) {
     return {
       fileName,
