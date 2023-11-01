@@ -20,7 +20,8 @@ export interface Posts {
 
 export const getPosts = async (): Promise<Posts[]> => {
 
-  const postsDirectory = path.resolve(".", "content", "posts");
+  // const postsDirectory = path.resolve(".", "content", "posts");
+  const postsDirectory  = path.join(process.cwd(), "content" ,'posts')
   const files: Array<string> = await readdir(postsDirectory);
 
   const posts = files.map(async (filename) => {
