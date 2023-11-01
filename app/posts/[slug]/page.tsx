@@ -48,10 +48,11 @@ export default async function PostTemplate(props: any) {
           />
         )}
       </Head>
-      <div id="postContainer" className={style.root}>
-        <h1>{post && post.frontmatter.title}</h1>
+      <div className={style.root}>
+        <h1 className="noParticles">{post && post.frontmatter.title}</h1>
         <ReactMarkdown
           children={post && post.content}
+          className="noParticles"
           components={{
             code({ node, className, children, ...props }) {
               const match = /language-(\w+)/.exec(className || "");

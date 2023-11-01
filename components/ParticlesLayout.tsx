@@ -71,7 +71,7 @@ const Layout = ({ children }: Props) => {
           mode: "push",
         },
         onDiv: {
-          selectors: ["#iam0", "#iam1", "#postContainer"],
+          selectors: ["#iam0", "#iam1", ".noParticles", "li"],
           enable: true,
           mode: "bounce",
           type: "rectangle",
