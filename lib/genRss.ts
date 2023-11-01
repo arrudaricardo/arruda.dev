@@ -1,6 +1,6 @@
-import { writeFileSync } from "fs";
-import { getPosts } from "./postHelper";
-import { baseURL, description, title } from "../config.json";
+// import { writeFileSync } from "fs";
+// import { getPosts } from "./postHelper";
+// import { baseURL, description } from "../config.json";
 
 const genLayout = (
   title: string,
@@ -27,22 +27,22 @@ const genItem = (title: string, link: string, description: string) => `
   </item>
 `;
 
-function genPostsItems() {
-  let items = "";
-  const posts = getPosts();
+// function genPostsItems() {
+//   let items = "";
+//   const posts = getPosts();
 
-  posts.forEach((post) => {
-    const link = `${baseURL}/posts/${post.slug}`;
-    const about = post.frontmatter.description ?? description;
-    if (post.frontmatter.title) {
-      items = items.concat(genItem(post.frontmatter.title, link, about));
-    }
-  });
+//   posts.forEach((post) => {
+//     const link = `${baseURL}/posts/${post.slug}`;
+//     const about = post.frontmatter.description ?? description;
+//     if (post.frontmatter.title) {
+//       items = items.concat(genItem(post.frontmatter.title, link, about));
+//     }
+//   });
 
-  return items;
-}
+//   return items;
+// }
 
-export function genRssFile() {
-  const rss = genLayout(title, description, baseURL, genPostsItems());
-  return writeFileSync(`${process.cwd()}/public/rss.xml`, rss);
-}
+// export function genRssFile() {
+//   const rss = genLayout(title, description, baseURL, genPostsItems());
+//   return writeFileSync(`${process.cwd()}/public/rss.xml`, rss);
+// }

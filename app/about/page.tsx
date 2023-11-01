@@ -19,7 +19,7 @@ const About = async () => {
   );
 };
 
-export const getMarkdownContent = async () => {
+const getMarkdownContent = async () => {
   const aboutPath = "content/about.md";
   const { content } = matter.read(aboutPath);
   return {

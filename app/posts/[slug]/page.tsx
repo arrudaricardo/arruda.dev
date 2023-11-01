@@ -49,7 +49,7 @@ export default async function PostTemplate(props: any) {
           />
         )}
       </Head>
-      <div className={style.root}>
+      <div id="postContainer" className={style.root}>
         <h1>{post && post.frontmatter.title}</h1>
         <ReactMarkdown
           children={post && post.content}

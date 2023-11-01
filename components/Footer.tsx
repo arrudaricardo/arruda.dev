@@ -1,6 +1,3 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import Link from 'next/link';
 import styles from "../styles/footer.module.css";
 
@@ -19,11 +16,6 @@ const footer = {
 const year = new Date().getFullYear();
 
 export default function Footer({ display }: Props) {
-  const [origin, setOrigin] = useState<string | undefined>(undefined);
-  useEffect(() => {
-    setOrigin(global.window?.location?.origin);
-  }, [global.window?.location?.origin]);
-
   return (
     <footer
       className={

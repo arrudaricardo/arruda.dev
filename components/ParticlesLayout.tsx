@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactElement, ReactNode } from "react";
+import { ReactNode } from "react";
 import styles from "../styles/layout.module.css";
 import Particles from "react-tsparticles";
 
@@ -71,7 +71,7 @@ const Layout = ({ children }: Props) => {
           mode: "push",
         },
         onDiv: {
-          selectors: ["#iam0", "#iam1"],
+          selectors: ["#iam0", "#iam1", "#postContainer"],
           enable: true,
           mode: "bounce",
           type: "rectangle",
