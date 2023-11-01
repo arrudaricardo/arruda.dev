@@ -1,5 +1,5 @@
 import path from "path";
-import fs from "node:fs";
+import fs from "fs";
 import { mdToPdf } from "md-to-pdf";
 
 export default async function PdfDownload() {

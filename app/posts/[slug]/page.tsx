@@ -31,10 +31,9 @@ export default async function PostTemplate(props: any) {
   const slug = props?.params?.slug as string;
 
   const posts = await getPosts();
-  if (slug === undefined) throw new Error("Params not found");
   const post = posts.find((post) => post.slug === slug);
 
-  if (!post) {
+  if (!post || !post.content || !post.frontmatter) {
     throw new Error("Post doesn't exist.");
   }
 
