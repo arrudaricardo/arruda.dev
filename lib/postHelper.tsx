@@ -1,6 +1,7 @@
 import matter from "gray-matter";
 import { escape } from "querystring";
 import { readdir, readFile } from "fs/promises";
+import path from "path";
 
 export interface Posts {
   frontmatter: {
@@ -18,11 +19,13 @@ export interface Posts {
 }
 
 export const getPosts = async (): Promise<Posts[]> => {
-  const files: Array<string> = await readdir(`${process.cwd()}/content/posts`);
+
+  const postsDirectory = path.resolve(".", "content", "posts");
+  const files: Array<string> = await readdir(postsDirectory);
 
   const posts = files.map(async (filename) => {
-    const path = `content/posts/${filename}`;
-    const file = await readFile(path);
+    const postPath = path.join(postsDirectory, filename);
+    const file = await readFile(postPath);
     const { data, content } = matter(file.toString());
     // Convert post date to format: Month day, Year
     //TODO: check config Date
@@ -40,7 +43,7 @@ export const getPosts = async (): Promise<Posts[]> => {
         : filename.replace(".md", ""),
       frontmatter,
       content,
-      path,
+      path: postPath,
     };
   });
 

@@ -3,7 +3,6 @@ import Head from "next/head";
 import Prism from "prismjs";
 import NavBottom from "../../../components/NavBottom";
 import style from "../../styles/post.module.css";
-// import Share from "../../../components/ShareFeather";
 import { getPosts } from "../../../lib/postHelper";
 
 function Atag(props: { href: string; value: string }) {
