@@ -58,7 +58,6 @@ export default function Social() {
             <Link
               key={i}
               href={url}
-              target={url.includes("http") ? "_blank" : "_self"}
             >
               <animated.div
                 style={s}
