@@ -19,7 +19,7 @@ export default async function PdfDownload() {
 }
 
 export const generatePdf = async () => {
-  const aboutPath = "content/about.md";
+  const aboutPath = path.resolve("content/about.md");
   const globalStylesheet = path.resolve("styles/", "global.css");
   const publicFolder = path.resolve(".", "public");
 

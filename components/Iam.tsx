@@ -1,8 +1,5 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 import { animated, useTransition } from "@react-spring/web";
-const { IamList } = iam;
-
-import { iam } from "../config.json";
 import style from "../styles/iam.module.css";
 const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
 
@@ -10,6 +7,11 @@ const Iam = () => {
   const ref = useRef<ReturnType<typeof setTimeout>[]>([]);
   const [iamA, setIamA] = useState<number>(0);
   const [iamB, setIamB] = useState<number>(0);
+
+  const IamList = [
+    ["I'm a", "Full-Stack Dev 👨‍💻"],
+    ["I ❤️️", "the web"],
+  ];
 
   const config = { mass: 1, tension: 180, friction: 10 };
   const transitionA = useTransition(iamA, {
@@ -47,10 +49,10 @@ const Iam = () => {
     ref.current.forEach(clearTimeout);
     ref.current = [];
     ref.current.push(
-      setInterval(() => setIamA((i) => (i! + 1) % IamList.length), delay)
+      setInterval(() => setIamA((i) => (i! + 1) % IamList.length), delay),
     );
     ref.current.push(
-      setInterval(() => setIamB((i) => (i! + 1) % IamList.length), delay)
+      setInterval(() => setIamB((i) => (i! + 1) % IamList.length), delay),
     );
   }, []);
 
