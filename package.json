@@ -6,7 +6,8 @@
     "start": "next start",
     "pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\"",
     "test": "vitest",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "generate:cv": "node lib/genCVPdf.mjs"
   },
   "engines": {
     "npm": ">=9.0.0",
@@ -19,10 +20,8 @@
     "gray-matter": "^4.0.3",
     "isomorphic-dompurify": "^1.9.0",
     "javascript-time-ago": "^2.5.9",
-    "md-to-pdf": "^5.2.4",
     "next": "^14.0.0",
     "prismjs": "^1.29.0",
-    "puppeteer": "^21.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-intersection-observer": "^9.5.2",
@@ -32,6 +31,8 @@
     "tsparticles": "^2.12.0"
   },
   "devDependencies": {
+    "md-to-pdf": "^5.2.4",
+    "puppeteer": "^21.4.1",
     "@playwright/test": "^1.39.0",
     "@testing-library/react": "^14.0.0",
     "@types/node": "^20.8.9",

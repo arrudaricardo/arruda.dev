@@ -31,5 +31,4 @@ yarn-error.log*
 # rss generation
 rss.xml
 
-public/ricardo-arruda-resume-*
 .vercel
