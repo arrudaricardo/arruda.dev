@@ -46,6 +46,7 @@
     "**/*.tsx",
     "lib/genRss.ts",
     "pages/_document.js",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "lib/genCVPdf.mjs"
   ]
 }

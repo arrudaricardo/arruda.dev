@@ -21,6 +21,7 @@
     "isomorphic-dompurify": "^1.9.0",
     "javascript-time-ago": "^2.5.9",
     "next": "^14.0.0",
+    "posthog-js": "^1.155.2",
     "prismjs": "^1.29.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -31,8 +32,6 @@
     "tsparticles": "^2.12.0"
   },
   "devDependencies": {
-    "md-to-pdf": "^5.2.4",
-    "puppeteer": "^21.4.1",
     "@playwright/test": "^1.39.0",
     "@testing-library/react": "^14.0.0",
     "@types/node": "^20.8.9",
@@ -41,7 +40,9 @@
     "@vitejs/plugin-react": "latest",
     "eslint-config-next": "^14.0.0",
     "jsdom": "latest",
+    "md-to-pdf": "^5.2.4",
     "prettier": "^3.0.3",
+    "puppeteer": "^21.4.1",
     "typescript": "^5.2.2",
     "typescript-plugin-css-modules": "^5.0.2",
     "vitest": "^0.34.6"
