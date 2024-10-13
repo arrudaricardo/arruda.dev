@@ -1,6 +1,7 @@
 import ReactMarkdown from "react-markdown";
 import Head from "next/head";
 import Prism from "prismjs";
+import Script from "next/script";
 import NavBottom from "../../../components/NavBottom";
 import style from "../../styles/post.module.css";
 import { getPosts } from "../../../lib/postHelper";
@@ -67,6 +68,15 @@ export default async function PostTemplate(props: any) {
               return Atag({ href: href!, value: String(children) });
             },
           }}
+        />
+        <Script
+          src="https://utteranc.es/client.js"
+          // @ts-ignore
+          repo="arrudaricardo/arruda.dev"
+          issue-term="pathname"
+          theme="github-dark"
+          crossorigin="anonymous"
+          async
         />
       </div>
       <NavBottom />

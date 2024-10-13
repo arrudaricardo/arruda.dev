@@ -112,3 +112,7 @@ img {
 ::-webkit-scrollbar-thumb {
     background: #888;
 }
+
+.utterances {
+  margin-bottom: 5rem;
+}
