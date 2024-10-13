@@ -1,5 +1,6 @@
 import Home from "./home";
 import { Metadata } from "next";
+import Particles from "../components/ParticlesLayout";
 
 export const metadata: Metadata = {
   title: "Ricardo de Arruda personal website",
@@ -12,5 +13,9 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  return <Home />;
+  return (
+    <Particles>
+      <Home />
+    </Particles>
+  );
 }

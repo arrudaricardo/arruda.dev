@@ -1,6 +1,5 @@
+html {}
 
-html {
-}
 body,
 button,
 input,
@@ -14,6 +13,7 @@ textarea {
   letter-spacing: 0.06em;
   scroll-behavior: smooth;
 }
+
 pre,
 code,
 pre tt {
@@ -23,6 +23,7 @@ pre tt {
     Courier, yahei consolas hybrid, monospace, segoe ui emoji, pingfang sc,
     microsoft yahei;
 }
+
 pre {
   padding: 0.7em 1.1em;
   overflow: auto;
@@ -34,11 +35,13 @@ pre {
   background: #2c3e50;
   border-radius: 4px;
 }
+
 pre code {
   padding: 0;
   margin: 0;
   background: #2c3e50;
 }
+
 code {
   color: #eee;
   background: #7d828a;
@@ -48,19 +51,23 @@ code {
   word-wrap: break-word;
   letter-spacing: normal;
 }
+
 blockquote {
   border-left: 0.25em solid;
   margin: 1em;
   padding: 0 1em;
   font-style: italic;
 }
+
 blockquote cite {
   font-weight: 700;
   font-style: normal;
 }
+
 blockquote cite::before {
   content: "—— ";
 }
+
 a {
   color: #83a8c0;
   text-decoration: none;
@@ -69,9 +76,11 @@ a {
   transition-duration: 0.4s;
   transition-timing-function: ease-out;
 }
+
 a:hover {
   filter: brightness(150%);
 }
+
 hr {
   opacity: 0.2;
   border-width: 0 0 5px;
@@ -80,6 +89,7 @@ hr {
   width: 50%;
   margin: 1.8em auto;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -87,11 +97,13 @@ table {
   width: 100%;
   max-width: 100%;
 }
+
 table th,
 table td {
   padding: 1.5%;
   border: 1px solid;
 }
+
 table th {
   font-weight: 700;
   vertical-align: bottom;
@@ -104,15 +116,11 @@ img {
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-    background: #2c3e50;
+  width: 8px;
+  height: 8px;
+  background: #2c3e50;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #888;
-}
-
-.utterances {
-  margin-bottom: 5rem;
+  background: #888;
 }

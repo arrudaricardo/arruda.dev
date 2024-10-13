@@ -1,10 +1,10 @@
 import ReactMarkdown from "react-markdown";
 import Head from "next/head";
 import Prism from "prismjs";
-import Script from "next/script";
 import NavBottom from "../../../components/NavBottom";
 import style from "../../styles/post.module.css";
 import { getPosts } from "../../../lib/postHelper";
+import Comments from "./components/Comments";
 
 function Atag(props: { href: string; value: string }) {
   return (
@@ -69,15 +69,7 @@ export default async function PostTemplate(props: any) {
             },
           }}
         />
-        <Script
-          src="https://utteranc.es/client.js"
-          // @ts-ignore
-          repo="arrudaricardo/arruda.dev"
-          issue-term="pathname"
-          theme="github-dark"
-          crossorigin="anonymous"
-          async
-        />
+        <Comments />
       </div>
       <NavBottom />
     </>

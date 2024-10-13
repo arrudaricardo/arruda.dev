@@ -14,6 +14,7 @@
     "node": "18.x"
   },
   "dependencies": {
+    "@giscus/react": "^3.0.0",
     "@react-spring/web": "^9.7.3",
     "@vercel/analytics": "^1.1.1",
     "eslint": "^8.52.0",

@@ -7,7 +7,6 @@ import "./styles/global.css";
 import "./styles/prism.css";
 
 import { CSPostHogProvider } from "./provider";
-import Particles from "../components/ParticlesLayout";
 
 export default function RootLayout({
   // Layouts must accept a children prop.
@@ -28,7 +27,7 @@ export default function RootLayout({
         <Analytics />
 
         <body>
-          <Particles>{children}</Particles>
+          {children}
           <Footer display="fixed" />
         </body>
       </CSPostHogProvider>
